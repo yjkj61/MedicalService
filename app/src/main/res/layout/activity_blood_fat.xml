@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.healthcareChildActivity.BloodFat">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:paddingStart="35dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="60dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+
+                    android:orientation="horizontal">
+
+
+                    <GridView
+                        android:id="@+id/circle_grid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:horizontalSpacing="10dp"
+                        android:numColumns="2" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dim_180"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/dim_30"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="#FFB9DCD0"
+                            app:strokeColor="#00FFFFFF">
+
+                            <TextView
+                                android:id="@+id/suggest1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="上一次测量总胆固醇：正常"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_14" />
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_20"
+                            app:cardBackgroundColor="#FFB9DCD0"
+                            app:strokeColor="#00FFFFFF">
+
+                            <TextView
+                                android:id="@+id/suggest2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="上一次测量总胆固醇：正常"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_14" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_20"
+                            app:cardBackgroundColor="#FFB9DCD0"
+                            app:strokeColor="#00FFFFFF">
+
+                            <TextView
+                                android:id="@+id/suggest3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="上一次测量总胆固醇：正常"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_14" />
+                        </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_20"
+                            app:cardBackgroundColor="#FFB9DCD0"
+                            app:strokeColor="#00FFFFFF">
+
+                            <TextView
+                                android:id="@+id/suggest4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="上一次测量总胆固醇：正常"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_14" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="#FFB9DCD0"
+                        app:cardCornerRadius="18dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+
+                            android:text="上一次测量血氧浓度：正常血氧"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="22sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="总胆固醇"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_14" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/dim_30"
+                            android:layout_height="@dimen/dim_14"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FFA87D5D"
+                            app:cardCornerRadius="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="甘油三酯"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_14" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/dim_30"
+                            android:layout_height="@dimen/dim_14"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FF5C96AD"
+                            app:cardCornerRadius="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="高密度脂蛋白"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/bee_bottom_text" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/dim_30"
+                            android:layout_height="@dimen/dim_14"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FF8AA85D"
+                            app:cardCornerRadius="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="低密度脂蛋白"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/bee_bottom_text" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/dim_30"
+                            android:layout_height="@dimen/dim_14"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FF5C60AD"
+                            app:cardCornerRadius="14dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:id="@+id/totalCholesterol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总胆固醇"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/glycerol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="甘油三酯"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/highDensityLipoprotein"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="高密度脂蛋白"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/lowDensityLipoprotein"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="低密度脂蛋白"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#FFC1C5E3"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="#00FFFFFF">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFDCB4B4"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/start"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="开始测量"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1.2"
+                        app:cardBackgroundColor="#FFC1E3C6"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/all_history"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="全部历史记录"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFC1E3E0"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/connect"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="连接设备"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#FFE3DCE2"
+            app:cardCornerRadius="20dp"
+            app:strokeColor="#00FFFFFF">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="@dimen/dp_10" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/blood_advice_back2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风险提示：近期血血压较高"
+                android:textColor="#ff4d4d4d"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                app:cardBackgroundColor="#FFB9DDC1"
+                app:strokeColor="#00FFFFFF">
+
+                <TextView
+                    android:id="@+id/advice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:paddingHorizontal="20dp"
+                    android:text="健康建议"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

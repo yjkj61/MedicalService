@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.healthMyStepFragments.WeekAndMonthFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="30dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/most"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="本月步数最多"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="15sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        app:cardBackgroundColor="#FFE8E9FF"
+                        app:cardCornerRadius="4dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/dp_4">
+
+                            <TextView
+                                android:id="@+id/most_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/most_step"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="70dp"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/price" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/less"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="本月步数最多"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="15sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        app:cardBackgroundColor="#FFE8E9FF"
+                        app:cardCornerRadius="4dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/dp_4">
+
+                            <TextView
+                                android:id="@+id/less_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/less_step"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="70dp"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/no_price" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/avg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="本月步数最多"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="15sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        app:cardBackgroundColor="#FFE8E9FF"
+                        app:cardCornerRadius="4dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/dp_4">
+
+                            <TextView
+                                android:id="@+id/avg_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/avg_step"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="70dp"
+                                android:text="周四"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dim_20"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.example.medicalservice.diyView.QQStepView
+                        android:id="@+id/stepView"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        app:borderWidth="6dp"
+                        app:bottomTextColor="#4D4D4D"
+                        app:bottomTextSize="22dp"
+                        app:topTextColor="#4D4D4D"
+                        app:topTextSize="56dp" />
+
+                    <TextView
+                        android:id="@+id/context"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-20dp"
+                        android:text="本月步数\n达标天数"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ai_beg_sleep_chat_back">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                app:cardBackgroundColor="#FFA4C6E4"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#00FFFFFF">
+
+                <TextView
+                    android:id="@+id/advice_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingStart="66dp"
+                    android:text="本周运动建议"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="15sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#E3DCE2"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#00FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="92dp"
+                    android:paddingTop="15dp">
+
+                    <TextView
+                        android:layout_width="147dp"
+                        android:layout_height="20dp"
+                        android:text="你本月步行不如上周多"
+                        android:textColor="#ff4d4d4d"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

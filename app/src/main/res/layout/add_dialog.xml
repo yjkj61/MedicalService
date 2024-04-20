@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/dim_20">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="@dimen/dim_400"
+        android:layout_height="@dimen/dim_60"
+        android:background="@drawable/login_edit_back"
+        android:hint="请输入名称"
+        android:paddingStart="@dimen/dp_10" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/last_step_back">
+
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dim_30"
+                android:paddingVertical="6dp"
+                android:text="取消"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/dialog_btn_back">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dim_30"
+                android:paddingVertical="6dp"
+                android:text="确定"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

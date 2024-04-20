@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/pass_date_list_item_back"
+    android:paddingVertical="@dimen/dim_14"
+    android:paddingHorizontal="@dimen/dim_20">
+
+    <ImageView
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/pass_date_item_check"/>
+
+    <ImageView
+        android:layout_toEndOf="@id/check"
+        android:id="@+id/goods_image"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_width="@dimen/dim_100"
+        android:layout_height="@dimen/dim_100"
+        android:src="@drawable/good_test"/>
+
+    <LinearLayout
+        android:layout_toEndOf="@id/goods_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/dim_14"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/good_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题"
+            android:textSize="@dimen/select_time"/>
+
+        <TextView
+            android:id="@+id/rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题"
+            android:layout_marginVertical="@dimen/dp_4"
+            android:textSize="@dimen/dim_sp_20"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/price_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/good_info"
+                android:layout_alignBaseline="@id/price"
+                android:layout_toRightOf="@id/good_image"
+                android:text="¥"
+                android:textColor="#FFEC612A"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/good_info"
+                android:layout_toRightOf="@id/price_unit"
+                android:text="189"
+                android:textColor="#FFEC612A"
+                android:textSize="21sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已失效"
+        android:paddingVertical="@dimen/dp_4"
+        android:paddingHorizontal="@dimen/dim_20"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/pass_date_status_text_back"/>
+
+</RelativeLayout>

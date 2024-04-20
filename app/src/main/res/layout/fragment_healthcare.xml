@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Healthcare">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:id="@+id/blood_pressure"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:background="@drawable/green_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/blood_pressure"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/tension"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/blood_oxygen"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_toRightOf="@id/blood_pressure"
+                            android:background="@drawable/orange_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/blood_oxygen"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/bloodOxygenSaturation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/blood_sugar"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_toRightOf="@id/blood_oxygen"
+                            android:background="@drawable/green_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/blood_sugar"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/bloodSugarValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/temperature"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_toRightOf="@id/blood_sugar"
+                            android:background="@drawable/yellow_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temperature"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/temperatureValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/pulse"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_toRightOf="@id/temperature"
+                            android:background="@drawable/green_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pulse"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/hPulseRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/uric_acid"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_below="@id/blood_pressure"
+                            android:layout_marginStart="@dimen/bee_start_margin"
+                            android:layout_marginTop="@dimen/bee_top_margin"
+                            android:background="@drawable/green_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/uric_acid"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text" />
+
+                            <TextView
+                                android:id="@+id/uricAcidValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cholesterol"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_below="@id/blood_pressure"
+                            android:layout_marginTop="@dimen/bee_top_margin"
+                            android:layout_toRightOf="@id/uric_acid"
+                            android:background="@drawable/orange_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cholesterol"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text1" />
+
+                            <TextView
+                                android:id="@+id/cholesterolValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/blood_fat"
+                            android:layout_width="@dimen/bee_width"
+                            android:layout_height="@dimen/bee_height"
+                            android:layout_below="@id/blood_pressure"
+                            android:layout_marginTop="@dimen/bee_top_margin"
+                            android:layout_toRightOf="@id/cholesterol"
+                            android:background="@drawable/green_diamond"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/blood_fat"
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_top_text1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="#ff595959"
+                                android:textSize="@dimen/bee_bottom_text" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="0.8"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/header"
+                            android:layout_width="@dimen/dim_36"
+                            android:layout_height="@dimen/dim_36"
+                            android:src="@drawable/header" />
+
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="9dp"
+                            android:layout_marginTop="2dp"
+
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_16" />
+
+                        <TextView
+                            android:id="@+id/switch_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/swtich_user_back"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/switch_user"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_14" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/health_assessment"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_14" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/health_level_back"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="优  秀"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="@dimen/dim_sp_14"  />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/user_health_data_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/use_tip_box"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/health_tip_back"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:id="@+id/use_tip_mad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/medication_reminder"
+                        android:textSize="@dimen/bee_top_text"
+                        android:textColor="#FF959895" />
+
+                    <TextView
+                        android:id="@+id/tipTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#FF959895"
+                        android:textSize="@dimen/bee_bottom_text" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/tip_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1.3"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/health_records"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/health_doc_back"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_records"
+                            android:textSize="@dimen/bee_top_text"
+                            android:textColor="#FF879889" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/health_voicer_back"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manual_consultation"
+                            android:textSize="@dimen/bee_top_text"
+                            android:textColor="#FF67717B" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ai_device"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/health_device_back"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/intelligent_hardware"
+                        android:textSize="@dimen/bee_top_text"
+                        android:textColor="#FF959895" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/devie_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/man_ai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/dim_100"
+                                android:layout_height="@dimen/dim_100"
+                                android:src="@drawable/health_head_man" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/aI_pre_consultation"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_sp_20" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/woman_ai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="23dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/dim_100"
+                                android:layout_height="@dimen/dim_100"
+                                android:src="@drawable/health_head_woman" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ai_visits"
+                                android:textColor="#ff4d4d4d"
+                                android:textSize="@dimen/dim_sp_20" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/voice_weidgt"
+                layout="@layout/voice_weidgt"
+                android:layout_width="@dimen/dim_400"
+                android:layout_height="wrap_content"
+               android:layout_gravity="end"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

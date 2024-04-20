@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:cardBackgroundColor="#FF9E99F8"
+            app:cardCornerRadius="45dp"
+            app:strokeColor="#00FFFFFF">
+
+
+            <TextView
+                android:id="@+id/step"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#fff7f8f8"
+                android:textSize="30sp" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="56dp"
+            android:layout_height="1dp"
+            android:background="#FF383838"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="1.确认收货地址"
+        android:textColor="#ff898989"
+        android:textSize="15sp" />
+
+</LinearLayout>

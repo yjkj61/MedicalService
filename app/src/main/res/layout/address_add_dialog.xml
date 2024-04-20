@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/dim_20"
+    android:background="@drawable/back1">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="440dp"
+        android:layout_height="@dimen/dim_60"
+        android:background="@drawable/login_edit_back"
+        android:hint="请输入姓名"
+        android:paddingStart="@dimen/dp_10" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="440dp"
+        android:layout_height="@dimen/dim_60"
+        android:layout_marginTop="@dimen/dim_20"
+        android:background="@drawable/login_edit_back"
+        android:hint="请输入电话号码"
+        android:inputType="numberSigned"
+        android:paddingStart="@dimen/dp_10" />
+
+    <EditText
+        android:id="@+id/area"
+        android:layout_width="440dp"
+        android:layout_height="@dimen/dim_60"
+        android:layout_marginTop="@dimen/dim_20"
+        android:background="@drawable/login_edit_back"
+        android:hint="请输入省市区"
+        android:paddingStart="@dimen/dp_10" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="440dp"
+        android:layout_height="@dimen/dim_60"
+        android:layout_marginTop="@dimen/dim_20"
+        android:background="@drawable/login_edit_back"
+        android:hint="请输入详细地址"
+        android:paddingStart="@dimen/dp_10" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/isDefault"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_60"
+        android:hint="是否设置为默认"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/last_step_back">
+
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="不，失误操作"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/dialog_btn_back">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="是,输入完成"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

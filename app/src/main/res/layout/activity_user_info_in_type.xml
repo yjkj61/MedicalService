@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.UserInfoInType">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dim_30"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dim_80"
+        android:paddingEnd="@dimen/dim_60">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/userheader"
+                android:layout_width="@dimen/dim_36"
+                android:layout_height="@dimen/dim_36" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_20"
+                android:textSize="@dimen/dim_sp_20"
+                android:textStyle="bold" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/switch_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="@dimen/dim_20"
+                android:gravity="end|center_vertical"
+                app:cardBackgroundColor="#E7C9C6"
+                app:cardCornerRadius="45dp">
+
+                <TextView
+                    android:layout_width="@dimen/dim_100"
+                    android:layout_height="30dp"
+
+                    android:gravity="center"
+                    android:text="切换用户"
+                    android:textSize="@dimen/dim_sp_14" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="@dimen/dim_20"
+                android:gravity="end|center_vertical"
+                app:cardBackgroundColor="#E7C9C6"
+                app:cardCornerRadius="45dp">
+
+                <TextView
+                    android:layout_width="@dimen/dim_100"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="保存修改"
+                    android:textSize="@dimen/dim_sp_14" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="@dimen/dim_20"
+                android:gravity="end|center_vertical"
+                app:cardBackgroundColor="#E7C9C6"
+                app:cardCornerRadius="45dp">
+
+                <TextView
+                    android:layout_width="@dimen/dim_100"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="删除用户" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名  "
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/user_edit_back"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:text="联系电话"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="160dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/user_edit_back"
+                android:inputType="phone"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/familyList"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/dp_10"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="家属1"-->
+<!--                android:textSize="@dimen/dim_sp_16"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/family1"-->
+<!--                android:layout_width="120dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:background="@drawable/user_edit_back"-->
+<!--                android:paddingStart="@dimen/dp_10"-->
+<!--                android:textSize="@dimen/dim_sp_14"-->
+<!--                tools:ignore="RtlSymmetry" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="100dp"-->
+<!--                android:text="联系电话"-->
+<!--                android:textSize="@dimen/dim_sp_16"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <EditText-->
+<!--                android:layout_width="160dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:background="@drawable/user_edit_back"-->
+<!--                android:inputType="phone"-->
+<!--                android:paddingStart="@dimen/dp_10"-->
+<!--                android:textSize="@dimen/dim_sp_14"-->
+<!--                tools:ignore="RtlSymmetry" />-->
+
+<!--        </LinearLayout>-->
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/dp_10"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="家属2"-->
+<!--                android:textSize="@dimen/dim_sp_16"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/family2"-->
+<!--                android:layout_width="120dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:background="@drawable/user_edit_back"-->
+<!--                android:paddingStart="@dimen/dp_10"-->
+<!--                android:textSize="@dimen/dim_sp_14" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="100dp"-->
+<!--                android:text="联系电话"-->
+<!--                android:textSize="@dimen/dim_sp_16"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <EditText-->
+<!--                android:layout_width="160dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:background="@drawable/user_edit_back"-->
+<!--                android:inputType="phone"-->
+<!--                android:paddingStart="@dimen/dp_10"-->
+<!--                android:textSize="@dimen/dim_sp_14" />-->
+
+<!--        </LinearLayout>-->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别  "
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/man"
+                android:layout_width="50dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/user_sexy_back_unselect"
+                android:gravity="center"
+                android:text="男" />
+
+            <TextView
+                android:id="@+id/woman"
+                android:layout_width="50dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/user_sexy_back_unselect"
+                android:gravity="center"
+                android:text="女" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="身高"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/hight"
+                android:layout_width="@dimen/dim_80"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="cm"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="体重"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="@dimen/dim_80"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="kg"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出生日期"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:background="@drawable/user_edit_back"
+                android:paddingVertical="5dp"
+                android:paddingStart="@dimen/dp_10"
+                android:text="点击选择日期"
+                android:textSize="@dimen/dim_sp_14" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="居住地址"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:paddingHorizontal="@dimen/dp_10"
+                android:paddingVertical="5dp"
+                android:text="点击选择省市区"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <EditText
+                android:id="@+id/ownerAddress"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+
+                android:background="@drawable/user_edit_back"
+                android:hint="请输入详细地址"
+                android:paddingStart="10dp"
+                android:textSize="@dimen/dim_sp_14" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家庭护工姓名"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/owner_nursing_name"
+                android:layout_width="@dimen/dim_120"
+                android:layout_height="@dimen/dim_30"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="38dp"
+                android:text="联系电话"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/owner_nursing_phone"
+                android:layout_width="@dimen/dim_180"
+                android:layout_height="@dimen/dim_30"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:inputType="phone"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家庭医生姓名"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/owner_doctor_name"
+                android:layout_width="@dimen/dim_120"
+                android:layout_height="@dimen/dim_30"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="联系电话"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/owner_doctor_phone"
+                android:layout_width="@dimen/dim_180"
+                android:layout_height="@dimen/dim_30"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/user_edit_back"
+                android:inputType="phone"
+                android:paddingStart="@dimen/dp_10"
+                android:textSize="@dimen/dim_sp_14" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dim_14">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自理评估等级"
+                android:textSize="@dimen/dim_sp_16"
+                android:textStyle="bold" />
+
+            <GridView
+                android:id="@+id/selfCareAssessmentLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/dp_10"
+                android:numColumns="6"
+                android:horizontalSpacing="@dimen/dim_30" />
+
+        </LinearLayout>
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:paddingBottom="@dimen/dim_14">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="护理等级"-->
+        <!--                android:textSize="@dimen/dim_sp_16"-->
+        <!--                android:textStyle="bold" />-->
+
+        <!--            <GridView-->
+        <!--                android:id="@+id/nursingGrade"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginVertical="0dp"-->
+        <!--                android:layout_marginEnd="78dp"-->
+        <!--                android:gravity="center"-->
+        <!--                android:numColumns="6"-->
+        <!--                android:verticalSpacing="0dp" />-->
+        <!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

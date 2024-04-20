@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/name_box"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:background="@drawable/specification_back_select">
+
+    <TextView
+        android:id="@+id/name"
+        android:textColor="#5C5C5C"
+        android:text="你好"
+        android:paddingHorizontal="@dimen/dim_30"
+        android:paddingVertical="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

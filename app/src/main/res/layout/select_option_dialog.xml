@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/back1"
+    android:paddingHorizontal="@dimen/dim_16">
+
+
+    <com.weigan.loopview.LoopView
+        android:id="@+id/loopView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:awv_textsize="18"
+        app:awv_isLoop="false"
+        android:layout_width="@dimen/dim_400"
+        android:layout_height="@dimen/dim_180"/>
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/loopView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dim_20"
+        android:gravity="center"
+       android:paddingBottom="@dimen/dp_10"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/last_step_back">
+
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dim_30"
+                android:paddingVertical="6dp"
+                android:text="取消"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:background="@drawable/dialog_btn_back">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dim_30"
+                android:paddingVertical="6dp"
+                android:text="确定"
+                android:textColor="#ff4d4d4d"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+   <com.example.medicalservice.diyView.NoScrollViewPager
+       android:id="@+id/viewPage"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_bar_box"
+        android:layout_marginHorizontal="130dp"
+        android:layout_marginBottom="10dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_back"
+            android:background="@drawable/tab_bar_back"
+            android:layout_alignParentBottom="true"
+            />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            app:tl_iconGravity="TOP"
+            android:background="#00000000"
+            app:tl_divider_width="0dp"
+            app:tl_iconHeight="20dp"
+            app:tl_iconWidth="20dp"
+            app:tl_indicator_color="#00483636"
+            app:tl_indicator_height="0dp"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="#161616"
+            app:tl_textUnselectColor="@color/black"
+            app:tl_indicator_anim_enable="true"
+            app:tl_textsize="@dimen/bar_text_size"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_nav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="?attr/colorSurface"-->
+<!--        app:itemTextAppearanceActive="@style/bottom_tab_title_active"-->
+<!--        app:itemTextAppearanceInactive="@style/bottom_tab_title_inactive"-->
+<!--        app:labelVisibilityMode="labeled"-->
+
+<!--        app:menu="@menu/main_bottom_menu" />-->
+
+</LinearLayout>

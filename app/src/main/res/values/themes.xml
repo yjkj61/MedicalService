@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MedicalService" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+
+    </style>
+
+    <style name="Theme.MedicalService" parent="Base.Theme.MedicalService" />
+
+    <!--  下载视频进度条的样式  -->
+    <style name="ProgressBar_task" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:maxHeight">@dimen/dp_10</item>
+        <item name="android:minHeight">@dimen/dp_10</item>
+        <item name="android:indeterminateOnly">false</item>
+    </style>
+</resources>

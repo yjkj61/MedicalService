@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">48dp</dimen>
+    <dimen name="main_bar_box">94dp</dimen>
+    <dimen name="bar_back">64dp</dimen>
+    <dimen name="bar_height">84dp</dimen>
+    <dimen name="bar_text_size">12sp</dimen>
+    <dimen name="bar_text_size2">14sp</dimen>
+    <dimen name="bee_width">120dp</dimen>
+    <dimen name="bee_height">132dp</dimen>
+
+    <dimen name="bee_start_margin">54dp</dimen>
+    <dimen name="bee_top_margin">-32dp</dimen>
+    <dimen name="bee_top_text">24sp</dimen>
+    <dimen name="bee_bottom_text">14sp</dimen>
+
+    <dimen name="bee_top_text1">22sp</dimen>
+
+    <dimen name="dim_80">130dp</dimen>
+    <dimen name="dim_90">130dp</dimen>
+    <dimen name="dim_100">140dp</dimen>
+
+    <dimen name="step_circle_width">140dp</dimen>
+
+    <dimen name="dim_sp_20">18sp</dimen>
+    <dimen name="dim_sp_10">12sp</dimen>
+    <dimen name="dim_sp_14">18sp</dimen>
+    <dimen name="dim_sp_16">20sp</dimen>
+    <dimen name="dim_16">18dp</dimen>
+    <dimen name="dim_14">16dp</dimen>
+    <dimen name="dim_sp_38">30sp</dimen>
+
+    <dimen name="dim_30">34dp</dimen>
+
+    <dimen name="dim_36">58dp</dimen>
+
+    <dimen name="dim_60">64dp</dimen>
+    <dimen name="dim_20">24dp</dimen>
+
+    <dimen name="dim_400">400dp</dimen>
+    <dimen name="dim_160">240dp</dimen>
+    <dimen name="dim_120">150dp</dimen>
+
+    <dimen name="dim_130">160dp</dimen>
+    <dimen name="dim_140">180dp</dimen>
+    <dimen name="dim_180">220dp</dimen>
+
+    <dimen name="select_time">44sp</dimen>
+
+    <dimen name="no_select_time">24sp</dimen>
+
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="40dp"
+    tools:context=".activity.healthcareChildActivity.useMadChildView.addMedicineChildView.FrequencyAdministration">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="46dp"
+            android:text="选择用药频率"
+            android:textColor="#ff4d4d4d"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fragment1"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            app:strokeWidth="1dp"
+            app:strokeColor="#6C63E5"
+            app:cardBackgroundColor="#DED6FC">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:backgroundColor="#DED6FC"
+                android:text="固定间隔"
+                android:gravity="center"
+                android:textColor="#ff000000"
+                android:textSize="21sp"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fragment2"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            app:strokeWidth="1dp"
+            app:strokeColor="#6C63E5"
+            app:cardBackgroundColor="#DED6FC"
+            android:layout_marginHorizontal="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:backgroundColor="#DED6FC"
+                android:text="每周特定日期"
+                android:gravity="center"
+                android:textColor="#ff000000"
+                android:textSize="21sp"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fragment3"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            app:strokeWidth="1dp"
+            app:strokeColor="#6C63E5"
+            app:cardBackgroundColor="#DED6FC">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:backgroundColor="#DED6FC"
+                android:text="按需"
+                android:gravity="center"
+                android:textColor="#ff000000"
+                android:textSize="21sp"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <com.example.medicalservice.diyView.NoScrollViewPager
+android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

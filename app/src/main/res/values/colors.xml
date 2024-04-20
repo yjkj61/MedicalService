@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="chat_box">#ffffff</color>
+    <color name="accent_color">#05c160</color>
+
+    <color name="background_gray1">#EDEDED</color>
+    <color name="background_gray3">#D4D4D4</color>
+    <color name="background_gray5">#c9c9c9</color>
+    <color name="status_bar_color">#EAE9F9</color>
+    <color name="color_4580FF">#4580FF</color>
+    <color name="color_D9EAFF">#D9EAFF</color>
+    <color name="color_EBF1F7">#EBF1F7</color>
+    <color name="color_73A4FF">#73A4FF</color>
+    <color name="color_FFC954">#FFC954</color>
+    <color name="color_FFAF1C">#FFAF1C</color>
+    <color name="color_777777">#777777</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_EBE4FF">#EBE4FF</color>
+    <color name="color_9279FF">#9279FF</color>
+    <color name="color_AAAAAA">#AAAAAA</color>
+    <color name="color_EEEEEE">#eeeeee</color>
+    <color name="color_3262DB">#3262DB</color>
+    <color name="color_E42A2C">#E42A2C</color>
+    <color name="color_72CC24">#72CC24</color>
+    <color name="color_EFEFEF">#EFEFEF</color>
+    <color name="color_FBF4FF">#FBF4FF</color>
+
+</resources>

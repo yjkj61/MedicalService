@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HalfCircleProgressBar">
+        <attr name="semicircle_pv_bg_color" format="color" />
+        <!--进度颜色-->
+        <attr name="semicircle_pv_color" format="color" />
+        <!--进度条宽度-->
+        <attr name="semicircle_pv_width" format="dimension" />
+        <!--文字颜色-->
+        <attr name="semicircle_pv_text_color" format="color" />
+        <!--文字大小-->
+        <attr name="semicircle_pv_text_size" format="dimension" />
+        <!--当前进度文字颜色-->
+        <attr name="semicircle_pv_current_text_color" format="color" />
+        <!--当前进度文字颜色-->
+        <attr name="semicircle_pv_current_text_size" format="dimension" />
+        <!--当前结果显示样式-->
+        <attr name="semicircle_pv_show_type" format="enum">
+            <!--不显示当前值-->
+            <enum name="none" value="0" />
+            <!--小数点形式显示-->
+            <enum name="decimal" value="1" />
+            <!--百分比形式显示，默认-->
+            <enum name="percentage" value="2" />
+        </attr>
+
+        <!--进度总大小-->
+        <attr name="semicircle_pv_total" format="integer" />
+        <!--当前进度-->
+        <attr name="semicircle_pv_current" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="CircleBarView">
+        <attr name="progress_color1" format="reference|color"></attr>
+        <attr name="progress_color2" format="reference|color"></attr>
+        <attr name="progress_color3" format="reference|color"></attr>
+        <attr name="bg_color" format="color"></attr>
+        <attr name="bar_width" format="dimension"></attr>
+        <attr name="circle_width" format="dimension"></attr><!--背景圆弧宽度 -->
+        <attr name="circle_height" format="dimension"></attr><!--背景圆弧高度 -->
+        <attr name="anchor_radius" format="dimension"></attr>
+        <attr name="anchor_bg_radius" format="dimension"></attr>
+        <attr name="anchor_color" format="reference|color"></attr>
+        <attr name="anchor_bg_color" format="reference|color"></attr>
+        <attr name="progress_max" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="CircleTextView">
+        <attr name="paddingRing2Bg" format="dimension"></attr>
+        <attr name="ringStrokeWidth" format="dimension"></attr>
+        <attr name="ringColor1" format="reference|color"></attr>
+        <attr name="ringColor2" format="reference|color"></attr>
+        <attr name="bgColor1" format="reference|color"></attr>
+        <attr name="bgColor2" format="reference|color"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="QQStepView">
+        <attr name="outerColor" format="color"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="borderWidth" format="dimension"/>
+        <attr name="topTextSize" format="dimension"/>
+        <attr name="topTextColor" format="color"/>
+
+        <attr name="bottomTextColor" format="color"/>
+
+        <attr name="bottomTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>

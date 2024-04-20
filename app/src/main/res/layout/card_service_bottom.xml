@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="47dp"
+    android:elevation="12dp"
+    app:cardBackgroundColor="#FFF3F2F7"
+    app:cardCornerRadius="12dp"
+    android:layout_marginVertical="@dimen/dp_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务流程示意："
+            android:textColor="#ff000000"
+            android:textSize="15sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/first_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="预约下单"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/procedure_arrow" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/second_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="师傅上门"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/procedure_arrow" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/third_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="开始服务"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/procedure_arrow" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/four_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="用户验收"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/procedure_arrow" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/five_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="支付费用"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/procedure_arrow" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/six_step"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="#FFF5BB8D"
+            app:strokeColor="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_10" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="服务完成"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/dim_sp_14" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

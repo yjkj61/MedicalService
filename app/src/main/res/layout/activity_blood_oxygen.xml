@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.healthcareChildActivity.BloodOxygen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal"
+        android:paddingStart="35dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="100dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.example.medicalservice.diyView.QQStepView
+                            android:id="@+id/progress1"
+                            android:layout_width="@dimen/dim_140"
+                            android:layout_height="match_parent"
+                            app:borderWidth="6dp"
+                            app:bottomTextColor="#FF267338"
+                            app:bottomTextSize="18dp"
+                            app:topTextColor="#FF4D4D4D"
+                            app:topTextSize="@dimen/dim_sp_38" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-60dp"
+                            android:text="舒张压\nmmHg"
+                            android:textColor="#ff267338"
+                            android:textSize="@dimen/dim_sp_16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <com.example.medicalservice.diyView.QQStepView
+                            android:id="@+id/progress2"
+                            android:layout_width="@dimen/dim_140"
+                            android:layout_height="match_parent"
+                            app:borderWidth="6dp"
+                            app:bottomTextColor="#FF267338"
+                            app:bottomTextSize="18dp"
+                            app:topTextColor="#FF4D4D4D"
+                            app:topTextSize="@dimen/dim_sp_38" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-60dp"
+                            android:text="收缩压\nmmHg"
+                            android:textColor="#ff267338"
+                            android:textSize="@dimen/dim_sp_16" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+
+                        app:cardBackgroundColor="#FFB9DCD0"
+                        app:cardCornerRadius="18dp">
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+
+                            android:text="血压：理想血压"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="22sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="舒张压"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="16sp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="30dp"
+                            android:layout_height="13dp"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FFA87D5D"
+                            app:cardCornerRadius="14dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:text="收缩压"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="16sp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="30dp"
+                            android:layout_height="13dp"
+                            android:layout_marginStart="6dp"
+                            app:cardBackgroundColor="#FF5C96AD"
+                            app:cardCornerRadius="14dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#FFC1C5E3"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="#00FFFFFF">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFDCB4B4"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/start"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="开始测量"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="6dp"
+                        android:layout_weight="1.2"
+                        app:cardBackgroundColor="#FFC1E3C6"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/all_history"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="全部历史记录"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFC1E3E0"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#00FFFFFF">
+
+                        <TextView
+                            android:id="@+id/connect"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="连接设备"
+                            android:textColor="#ff4d4d4d"
+                            android:textSize="20dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginTop="20dp"
+
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#FFE3DCE2"
+            app:cardCornerRadius="20dp"
+            app:strokeColor="#00FFFFFF">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/blood_advice_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风险提示：近期血血压较高"
+                android:textColor="#ff4d4d4d"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                app:cardBackgroundColor="#FFDDBEB9"
+                app:strokeColor="#00FFFFFF">
+
+                <TextView
+                    android:id="@+id/advice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:paddingHorizontal="20dp"
+                    android:text="健康建议"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="20sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

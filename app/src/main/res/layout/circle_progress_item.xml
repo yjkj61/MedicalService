@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.example.medicalservice.diyView.QQStepView
+        android:id="@+id/step_view"
+        android:layout_width="@dimen/step_circle_width"
+        android:layout_height="@dimen/step_circle_width"
+        app:borderWidth="4dp"
+        app:bottomTextColor="#FF4D4D4D"
+        app:bottomTextSize="15sp"
+        app:innerColor="#A5DABC"
+        app:outerColor="#DEECE7"
+        app:topTextColor="#FF4D4D4D"
+        app:topTextSize="@dimen/dim_sp_38" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:gravity="center"
+        android:text="本月平均体动"
+        android:textColor="#ff4d4d4d"
+        android:textSize="@dimen/dim_sp_20" />
+
+    <TextView
+        android:id="@+id/bottom_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-50dp"
+        android:text="day"
+        android:textColor="#ff4d4d4d"
+        android:textSize="@dimen/sp_14" />
+</LinearLayout>

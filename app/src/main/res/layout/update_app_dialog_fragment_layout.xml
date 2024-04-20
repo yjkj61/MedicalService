@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/update_dialog_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.5"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:text="发现新版本,是否更新"/>
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/percent_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/liji_c_blue"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/download_progress_bar"/>
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/download_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/ProgressBar_task"
+        android:max="100"
+        app:layout_constraintBottom_toTopOf="@id/bottom_button"
+        android:progressDrawable="@drawable/task_progress_download_shape" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/cancel_update_button"
+            android:text="取消"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:background="@drawable/cancel_button_bg_shape"
+            android:textColor="@color/color_777777" />
+        <TextView
+            android:id="@+id/confirm_update_button"
+            android:text="升级"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:background="@color/liji_c_blue"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

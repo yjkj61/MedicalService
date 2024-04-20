@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.shopChildView.MyFav"
+    android:orientation="vertical"
+    android:id="@+id/box"
+    android:paddingHorizontal="@dimen/dp_40">
+
+    <LinearLayout
+        android:id="@+id/top_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_weight="1"
+            android:text="@string/my_collection"
+            android:textColor="#ff9e99f8"
+            android:textSize="19sp" />
+
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/grid_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/dp_10"
+        android:verticalSpacing="@dimen/dim_20"
+        android:layout_marginTop="@dimen/dim_20"
+        android:numColumns="2"/>
+
+</LinearLayout>

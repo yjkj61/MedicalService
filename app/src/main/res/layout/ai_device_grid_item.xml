@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="7dp"
+    android:layout_marginVertical="10dp"
+    android:background="@drawable/ai_device_item_back3"
+    android:orientation="vertical"
+    android:paddingHorizontal="7dp"
+    android:paddingVertical="@dimen/dp_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dim_90"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ai_beg" />
+
+        <LinearLayout
+            android:id="@+id/control_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_weight="0.7"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#F2F8F9"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="1dp"
+                android:text="新增"
+                android:textColor="#ff4d4d4d"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="#F2F8F9"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="1dp"
+                android:text="编辑"
+                android:textColor="#ff4d4d4d"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="#F2F8F9"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="1dp"
+                android:text="刪除"
+                android:textColor="#ff4d4d4d"
+                android:textSize="14sp"
+                 />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="智能睡眠垫"
+            android:textColor="#ff636363"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多种需求一键呼叫"
+            android:textColor="#ff808080"
+            android:textSize="10sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="4dp"
+            app:strokeColor="#BEA1C2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="3dp"
+                android:text="查看设备详情"
+                android:textColor="#ffbea1c2"
+                android:textSize="8sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</LinearLayout>

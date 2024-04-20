@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_home"
+        android:title="@string/main_home_string"
+        android:icon="@drawable/selector_main"
+        />
+
+    <item
+        android:id="@+id/main_healthcare"
+        android:title="@string/main_healthcare_string"
+        android:icon="@drawable/selector_healthcare"
+        />
+
+    <item
+        android:id="@+id/main_property_five_blessings"
+        android:title="@string/main_property_five_blessings_string"
+        android:icon="@drawable/selector_property_five_blessings"
+        />
+
+    <item
+        android:id="@+id/main_tourism"
+        android:title="@string/main_tourism_string"
+        android:icon="@drawable/selector_tourism"
+        />
+
+    <item
+        android:id="@+id/main_catering_services"
+        android:title="@string/main_catering_services_string"
+        android:icon="@drawable/selector_catering_services"
+        />
+
+    <item
+        android:id="@+id/main_mall_group_buying"
+        android:title="@string/main_mall_group_buying_string"
+        android:icon="@drawable/selector_mall_group_buying"
+        />
+    <item
+        android:id="@+id/main_leisure_entertainment"
+        android:title="@string/main_leisure_entertainment_string"
+        android:icon="@drawable/selector_leisure_entertainment"
+        />
+</menu>

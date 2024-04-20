@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/box"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dp_10"
+    android:background="@drawable/category_detail_grid_item_back"
+    android:paddingHorizontal="@dimen/dim_20">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/father_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:maxWidth="@dimen/dim_400"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:paddingVertical="@dimen/dim_14"-->
+<!--        android:textSize="@dimen/dim_sp_14" />-->
+    <!--    <GridView-->
+    <!--        android:id="@+id/grid_view"-->
+    <!--        android:horizontalSpacing="4dp"-->
+    <!--        android:verticalSpacing="2dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+</LinearLayout>

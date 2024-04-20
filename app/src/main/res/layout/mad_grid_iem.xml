@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/box"
+    android:background="@drawable/back1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="142dp"
+                    android:layout_height="112dp"
+                    app:strokeColor="#FFC0BFDC"
+                    >
+                    <ImageView
+                        android:id="@+id/image"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp">
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="药品名称"
+                        android:textColor="#ff808080"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="奥美拉挫肠溶胶囊"
+                        android:textColor="#ff6c1985"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="使用剂量"
+                        android:textColor="#ff808080"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:id="@+id/medicinalNumber"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1片/次"
+                        android:textColor="#ff6c1985"
+                        android:textSize="17sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下次提醒时间"
+                        android:textColor="#ff808080"
+                        android:textSize="12sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tip_next_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="今天15:00"
+                        android:textColor="#ff6c1985"
+                        android:textSize="17sp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用药频率"
+                android:textColor="#ff4d4d4d"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/frequency_administration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="每天"
+                android:textColor="#ff6c1985"
+                android:textSize="17sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用药时间"
+                android:textColor="#ff4d4d4d"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/time_administration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="每天"
+                android:textColor="#ff6c1985"
+                android:textSize="17sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/edit_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FF8FD2DB"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#00ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="4sp"
+                    android:text="修改计划"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="17sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cancel_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FF8E99DC"
+                app:cardCornerRadius="12dp"
+
+               >
+
+                <TextView
+                    android:id="@+id/cancel_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="4sp"
+                    android:text="取消提醒"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="17sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/delete_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFDC8F8F"
+                app:cardCornerRadius="12dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="4sp"
+                    android:text="彻底删除"
+                    android:textColor="#ff4d4d4d"
+                    android:textSize="17sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bottom_tab_title_active">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!--没有选中的样式，导航默认的字体大小就是14sp-->
+    <style name="bottom_tab_title_inactive">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--ShapeableImageView 圆角-->
+    <style name="RoundedStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="Dialog_style" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+
+    </style>
+
+    <style name="roomRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+
+        <item name="android:minHeight">12dip</item>
+        <item name="android:minWidth">12dip</item>
+    </style>
+</resources>

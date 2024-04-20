@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragments.healthPhysicalExaminationFragments.FragmentNeedSpaceArea">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="按需用药系统不会提醒，请用后自行添加用药记录"
+            android:textSize="@dimen/dim_30" />
+
+        <LinearLayout
+            android:id="@+id/next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="77dp"
+                android:paddingVertical="18dp"
+                android:text="完成"
+                android:textColor="#ff000000"
+                android:textSize="21sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.healthMyStepFragments.DayFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+            <TextView
+                android:id="@+id/step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1200"
+                android:textColor="#ff4d4d4d"
+                android:textSize="50sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="步"
+                android:textColor="#ff4d4d4d"
+                android:textSize="@dimen/dim_sp_20"
+                />
+        </LinearLayout>
+
+       <com.google.android.material.card.MaterialCardView
+           android:id="@+id/step_box"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/dim_30"
+           app:cardCornerRadius="8dp"
+           app:strokeColor="#00FFFFFF"
+           app:cardBackgroundColor="#FFE3EEF7"
+           android:layout_marginTop="5dp">
+
+           <com.google.android.material.card.MaterialCardView
+               android:id="@+id/progress"
+               android:layout_width="500dp"
+               android:layout_height="@dimen/dim_30"
+               app:cardCornerRadius="8dp"
+               app:strokeColor="#00FFFFFF"
+               app:cardBackgroundColor="#A4C6E4">
+
+           </com.google.android.material.card.MaterialCardView>
+       </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/step_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="您的日均步数建议是7000步，当前已完成90%"
+            android:textColor="#ff4d4d4d"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dim_16">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消耗"
+                android:textColor="#ff4d4d4d"
+                android:textSize="@dimen/dim_sp_20"
+                />
+            <TextView
+                android:id="@+id/qianka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="560"
+                android:textColor="#ff4d4d4d"
+                android:textSize="55sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消耗"
+                android:textColor="#ff4d4d4d"
+                android:textSize="@dimen/dim_sp_20"
+                />
+
+            <TextView
+                android:id="@+id/rice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="相当于2碗米饭"
+                android:textColor="#ff4d4d4d"
+                android:textSize="17sp"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+        
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/grid_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dim_20"
+            app:strokeColor="#00FFFFFF"
+            app:cardBackgroundColor="#D2CADC"
+            android:layout_marginTop="@dimen/dim_16">
+            <GridView
+                android:id="@+id/grid_view"
+                android:verticalSpacing="20dp"
+                android:horizontalSpacing="47dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="47dp"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.healthcareChildActivity.AIBeg"
+    android:orientation="vertical"
+    android:paddingHorizontal="35dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left" />
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/nologin_header" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start|center_vertical"
+            android:layout_marginStart="18dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的计步"
+                android:textColor="#ff4d4d4d"
+                android:textSize="23sp"
+                />
+
+            <TextView
+                android:id="@+id/connect_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="连接状态：已连接"
+                android:textColor="#ff4d4d4d"
+                android:textSize="13sp"
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_marginStart="26dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="本周共计步数"
+                android:textColor="#ff4d4d4d"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:id="@+id/total_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23000步"
+                android:textColor="#ff4d4d4d"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_marginStart="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="本周平均步数"
+                android:textColor="#ff4d4d4d"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:id="@+id/total_avg_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23000步"
+                android:textColor="#ff4d4d4d"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_36"
+        android:orientation="horizontal"
+        android:background="@drawable/ai_beg_tab_back"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="72dp"
+
+        android:gravity="center_vertical"
+        android:paddingHorizontal="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023年1月17日"
+            android:textColor="#ff4d4d4d"
+            android:textSize="@dimen/bee_bottom_text"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tl_2"
+            android:layout_width="@dimen/dim_400"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            app:tl_divider_color="#00000000"
+            app:tl_divider_padding="0dp"
+            app:tl_divider_width="0dp"
+            app:tl_indicator_color="#00FFFFFF"
+            app:tl_indicator_height="0dp"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="#FF4D4D4D"
+            app:tl_textUnselectColor="#FF4D4D4D"
+            app:tl_textsize="14sp"
+            app:tl_underline_color="#00000000"
+            app:tl_underline_height="0dp"/>
+
+    </LinearLayout>
+
+    <com.example.medicalservice.diyView.NoScrollViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="72dp"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginVertical="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/user_health_data_item_back"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="2dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff4d4d4d"
+            android:textSize="@dimen/dim_sp_14"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_16"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/progress_total"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_sp_10"
+                android:layout_centerInParent="true"
+                android:background="@drawable/progress_bar_back"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dim_20"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <LinearLayout
+                    android:id="@+id/progress_value"
+                    android:layout_width="100dp"
+                    android:layout_height="@dimen/dim_16"
+                    android:gravity="center_vertical|end"
+                    android:background="@drawable/progress_back">
+                    <TextView
+                        android:id="@+id/text_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00000"
+                        android:layout_marginEnd="@dimen/dp_4"
+                        android:textSize="@dimen/bee_bottom_text"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageType"
+                    android:layout_width="@dimen/dim_16"
+                    android:layout_height="@dimen/dim_16"
+                    android:layout_marginStart="-4dp"
+                    android:src="@drawable/icon_health_list_walk"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="@dimen/dim_14"
+        android:layout_height="@dimen/dim_14"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/icon_health_list_refresh"/>
+
+
+</LinearLayout>

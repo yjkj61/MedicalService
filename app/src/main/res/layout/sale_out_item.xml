@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dp_10"
+    app:cardBackgroundColor="#FFF8F7FC"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="#00FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="12dp">
+
+        <LinearLayout
+            android:id="@+id/top_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/store_name_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:cardCornerRadius="0dp"
+                app:strokeColor="#FFEDA966">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="2dp"
+                    android:text="店铺"
+                    android:textColor="#ffeda966"
+                    android:textSize="11sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/store_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:text="欧姆龙旗舰店"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/good_info_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_box"
+            android:layout_marginTop="20dp"
+            android:paddingStart="40dp">
+
+
+
+            <ImageView
+                android:id="@+id/good_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/good_test" />
+
+            <TextView
+                android:id="@+id/good_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/good_image"
+                android:text="欧姆龙（OMRON）电子血压计家用上臂式血压仪 HEM-7124"
+                android:textColor="#ff000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/good_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/good_name"
+                android:layout_marginVertical="14dp"
+                android:layout_toRightOf="@id/good_image"
+                android:text="型号：官方套餐；重量：0.59kg"
+                android:textColor="#ff58595b"
+
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/price_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/good_info"
+                android:layout_alignBaseline="@id/price"
+                android:layout_toRightOf="@id/good_image"
+                android:text="¥"
+                android:textColor="#FFEC612A"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/good_info"
+                android:layout_toRightOf="@id/price_unit"
+                android:text="189"
+                android:textColor="#FFEC612A"
+                android:textSize="21sp" />
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

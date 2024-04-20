@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginVertical="9dp">
+
+    <TextView
+        android:id="@+id/time_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1天"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/select_time"
+        />
+</LinearLayout>

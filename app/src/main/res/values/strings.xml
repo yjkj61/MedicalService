@@ -1,0 +1,171 @@
+<resources>
+    <string name="app_name">宗狮老友社</string>
+    <string name="main_home_string">首页</string>
+    <string name="main_healthcare_string">健康医疗</string>
+    <string name="main_property_five_blessings_string">物业服务</string>
+    <string name="main_tourism_string">旅游旅居</string>
+    <string name="main_catering_services_string">餐饮服务</string>
+    <string name="main_leisure_entertainment_string">休闲娱乐</string>
+    <string name="main_mall_group_buying_string">商城团购</string>
+
+    <string name="to_day_sleep">当日睡眠</string>
+
+    <string name="week_sleep">本周睡眠</string>
+    <string name="to_day_walk">当日步数</string>
+    <string name="week_walk">本周步数</string>
+    <string name="switch_user">切换用户</string>
+    <string name="health_assessment">健康状况评估</string>
+    <string name="medication_reminder">用药提醒</string>
+    <string name="health_records">健康档案</string>
+    <string name="manual_consultation">人工问诊</string>
+    <string name="intelligent_hardware">智能硬件</string>
+    <string name="aI_pre_consultation">AI预问诊</string>
+    <string name="ai_visits">AI查访</string>
+    <string name="blood_pressure">血压</string>
+    <string name="blood_oxygen">血氧</string>
+    <string name="blood_sugar">血糖</string>
+    <string name="temperature">体温</string>
+    <string name="pulse">脉搏</string>
+    <string name="uric_acid">尿酸</string>
+    <string name="cholesterol">胆固醇</string>
+    <string name="blood_fat">血脂四项</string>
+    <string name="service_order">服务订单</string>
+    <string name="service_notify">服务通知</string>
+    <string name="property_services">物业服务</string>
+    <string name="property_services_content">管家服务 用心照护理念</string>
+    <string name="home_care">物业服务</string>
+    <string name="home_care_content">管家服务 用心照护理念</string>
+    <string name="accompanying_travel">物业服务</string>
+    <string name="accompanying_travel_content">管家服务 用心照护理念</string>
+    <string name="sojourn">旅居</string>
+    <string name="sojourn_content">甄选品质服务</string>
+    <string name="customized_route">定制路线</string>
+    <string name="customized_route_content">精选路线推荐</string>
+    <string name="canteen_title">用新鲜的食材\n为您烹饪家的味道</string>
+    <string name="subtitle_1">社区食堂菜品每日更新 选用当季新鲜食材</string>
+    <string name="subtitle_2">私家菜单为您单炒小菜 一份量满足一家人</string>
+    <string name="community_cafeteria">社区食堂</string>
+    <string name="start_point">开始点菜</string>
+    <string name="private_menu">私家菜单</string>
+    <string name="see_all">查看所有</string>
+    <string name="group_buying">团购</string>
+    <string name="shop">商城</string>
+    <string name="kill_goods">限时抢购</string>
+    <string name="message">消息提醒</string>
+    <string name="update">系统更新</string>
+    <string name="clear">一键加速</string>
+    <string name="volume_control">音量调节</string>
+    <string name="eye_protection_mode">护眼模式</string>
+    <string name="login_tip1">请填写完整</string>
+    <string name="login_tip2">登录失败，请联系管理员</string>
+    <string name="login_tip3">登录成功</string>
+    <string name="still_have_no_account">我还没有账号</string>
+    <string name="username">账号</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="register">点击注册</string>
+    <string name="add_user">新增用户</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="upload_head">上传头像</string>
+    <string name="category">分类</string>
+    <string name="good_keywords">输入商品关键词</string>
+    <string name="search">搜索</string>
+    <string name="shopping_cart">购物车</string>
+    <string name="my_center">个人中心</string>
+    <string name="selected_brands">精选品牌</string>
+    <string name="medical_equipment">医疗器械</string>
+    <string name="sales_ranking">销量排行榜</string>
+    <string name="manger">管理</string>
+    <string name="sum">合计:</string>
+    <string name="to_be_shipped">待发货</string>
+    <string name="goods_to_be_received">待收货</string>
+    <string name="to_be_evaluated">待评价</string>
+    <string name="after_sale">退款/售后</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="address">收货地址</string>
+    <string name="red_envelope_card_voucher">红包卡券</string>
+    <string name="order_step_1">1.确认收货地址</string>
+    <string name="order_step_2">2.确认订单信息</string>
+    <string name="order_step_3">3.选择支付方式</string>
+    <string name="good_status">4.支付成功</string>
+    <string name="comprehensive">综合</string>
+    <string name="sales_volume">销量</string>
+    <string name="new_goods">新品</string>
+    <string name="price">价格</string>
+    <string name="add_address">添加地址</string>
+    <string name="all_order">全部订单</string>
+    <string name="wait_service">待服务</string>
+    <string name="wait_finish">待完成</string>
+    <string name="housekeeping">家政保洁</string>
+    <string name="laundry_washing">衣物清洗</string>
+    <string name="appliance_cleaning">家电清洗</string>
+    <string name="appliance_repair">家电维修</string>
+    <string name="home_repairs">房屋维修</string>
+    <string name="hydroelectric_installation">水电安装</string>
+    <string name="water_electricity_repairs">水电维修</string>
+    <string name="pipeline_dredging">管道疏通</string>
+    <string name="door_haircut">上门理发</string>
+    <string name="massage_treatments">按摩理疗</string>
+    <string name="life_delivery">生活配送</string>
+    <string name="outside_activity">户外活动</string>
+    <string name="psychological_counseling">心理咨询</string>
+    <string name="door_care">上门护理</string>
+    <string name="travel_with_accompaniment">陪伴出行</string>
+    <string name="express_errands">快递跑腿</string>
+    <string name="accompany_the_doctor_to_purchase_medicines">陪医购药</string>
+    <string name="menu">点菜单</string>
+    <string name="measuring">正在测量</string>
+    <string name="start_measure">开始测量</string>
+    <string name="scanning">正在扫描</string>
+    <string name="start_connect">开始连接</string>
+    <string name="connecting">正在连接</string>
+    <string name="connect">连接设备</string>
+    <string name="connect_success">连接成功</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_msg_remind">MsgRemindActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+    <string name="dangqianzhanghuyue"><u>当前账户余额</u></string>
+
+</resources>

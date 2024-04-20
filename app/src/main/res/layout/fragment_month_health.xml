@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.healthAiBegFragments.MonthHealthFragment">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+              <GridView
+                  android:id="@+id/circle_grid"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:numColumns="2"
+                  android:layout_weight="1"/>
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="0.6"
+                  android:orientation="vertical"
+                  android:gravity="center"
+                 >
+
+                  <com.example.medicalservice.diyView.QQStepView
+                      android:id="@+id/step_view"
+                      android:layout_width="@dimen/dim_130"
+                      android:layout_height="@dimen/dim_130"
+                      app:borderWidth="4dp"
+                      app:innerColor="#A5DABC"
+                      app:outerColor="#DEECE7"
+                      app:topTextColor="#FF4D4D4D"
+                      app:topTextSize="40sp"
+                      app:bottomTextColor="#FF4D4D4D"
+                      app:bottomTextSize="15sp"
+                      android:paddingTop="5dp"/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="本周睡眠质量\n达标天数"
+                      android:gravity="center"
+                      android:textColor="#ff4d4d4d"
+                      android:textSize="14sp" />
+
+
+
+                <per.wsj.library.AndRatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:numStars="5"
+                    app:starColor="#FFFFBF59"/>
+
+
+              </LinearLayout>
+
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:background="@drawable/ai_beg_sleep_chat_back"
+              android:layout_marginHorizontal="20dp"
+              android:orientation="horizontal">
+              
+             <com.github.mikephil.charting.charts.BarChart
+                 android:id="@+id/barChart"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"/>
+
+          </LinearLayout>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:layout_marginTop="20dp"
+          android:orientation="vertical">
+          
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="33dp"
+              app:strokeColor="#00FFFFFF"
+              app:cardBackgroundColor="#FFD2CADC"
+              app:cardCornerRadius="12dp">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:gravity="center_vertical"
+                  android:text="本月睡眠建议"
+                  android:textColor="#ff4d4d4d"
+                  android:textSize="14sp"
+                  android:paddingStart="50dp"/>
+
+          </com.google.android.material.card.MaterialCardView>
+
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              app:strokeColor="#00FFFFFF"
+              app:cardBackgroundColor="#FFDCE3DD"
+              android:layout_marginBottom="20dp"
+              android:layout_marginTop="20dp"
+              app:cardCornerRadius="12dp">
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="#FFDCE3DD">
+
+              </LinearLayout>
+
+          </com.google.android.material.card.MaterialCardView>
+
+      </LinearLayout>
+  </LinearLayout>
+
+</FrameLayout>

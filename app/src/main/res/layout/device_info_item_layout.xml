@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="10dp"
+        android:textColor="@color/color_777777" />
+
+    <TextView
+        android:id="@+id/has_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="10dp"
+        android:textColor="@color/color_777777"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:background="@drawable/purple_bg_5dp_corner_shape"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/device_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="10dp"
+        android:textColor="@color/color_777777"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:background="@drawable/black_bg_5dp_corner_shape"
+        android:layout_gravity="center_vertical"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

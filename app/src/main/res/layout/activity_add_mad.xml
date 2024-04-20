@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.healthcareChildActivity.useMadChildView.AddMadActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+    
+    
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="155dp"
+        android:layout_height="126dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/chat_add_camera"/>
+    
+    <EditText
+        android:id="@+id/med_name"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:background="@drawable/next_add_mad"
+        android:layout_marginTop="36dp"
+        android:hint="添加药品名称"
+        android:textAlignment="center"/>
+    
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="142dp"
+        android:layout_height="35dp"
+        app:cardBackgroundColor="#FFE9E9FB"
+        app:strokeColor="#006C63E5"
+        android:layout_marginTop="26dp">
+        <TextView
+            android:id="@+id/next_step"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="下一步"
+            android:gravity="center"
+            android:textColor="#ff4d4d4d"
+            android:textSize="19sp"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

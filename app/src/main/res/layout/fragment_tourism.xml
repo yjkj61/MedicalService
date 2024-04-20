@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Tourism">
+
+    <!-- TODO: Update blank fragment layout -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:gravity="end"
+       android:paddingHorizontal="30dp"
+       android:layout_marginTop="40dp">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+
+           android:layout_weight="1">
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="0.5"
+               android:gravity="center"
+               android:orientation="vertical">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   android:layout_weight="1"
+                   android:layout_marginTop="20dp"
+                   android:gravity="center"
+                   android:background="@drawable/shadow_of_view"
+                   android:paddingHorizontal="36dp">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/tourism_left_home_icon"/>
+
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:gravity="end">
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/sojourn"
+                           android:textColor="#ff5656c1"
+                           android:textSize="26sp"
+                           />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/sojourn_content"
+                           android:textColor="#ff595959"
+                           android:gravity="end"
+                           android:textSize="16sp"
+                           android:layout_marginTop="10dp"/>
+
+                   </LinearLayout>
+
+               </LinearLayout>
+
+               <Space
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp"/>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   android:layout_weight="1"
+                   android:layout_marginBottom="20dp"
+                   android:gravity="center"
+                   android:background="@drawable/shadow_of_view"
+                   android:paddingHorizontal="36dp">
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/tourism_left_local_icon"/>
+
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:gravity="end">
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/customized_route"
+                           android:textColor="#ff5656c1"
+                           android:textSize="26sp"
+                           android:gravity="end"
+                           />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="@string/customized_route_content"
+                           android:textColor="#ff595959"
+                           android:textSize="16sp"
+                           android:gravity="end"
+                           android:layout_marginTop="10dp"/>
+
+                   </LinearLayout>
+               </LinearLayout>
+
+
+           </LinearLayout>
+
+           <Space
+               android:layout_width="40dp"
+               android:layout_height="match_parent"/>
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:orientation="vertical">
+
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   android:layout_weight="1"
+                   android:src="@drawable/tourism_home_image"/>
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/bottom_rec"
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   android:layout_weight="0.4"/>
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+
+<!--       <include-->
+<!--           layout="@layout/voice_weidgt"-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:layout_marginEnd="30dp" />-->
+   </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    tools:context=".activity.LoginView">
+
+    <LinearLayout
+        android:id="@+id/back_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dim_36"
+        android:layout_marginTop="@dimen/dim_36"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/header_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_36"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_box">
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="@dimen/dim_80"
+            android:layout_height="@dimen/dim_80"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nologin_header" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/upload_head"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_box">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:textSize="@dimen/dim_sp_20" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="@dimen/dim_400"
+            android:layout_height="@dimen/dim_36"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/login_edit_back"
+            android:inputType="number"
+            android:paddingStart="@dimen/dp_10" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mark_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_box">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="运营商"
+            android:textSize="@dimen/dim_sp_20" />
+
+        <Spinner
+            android:id="@+id/markName"
+            android:layout_width="@dimen/dim_400"
+            android:layout_height="@dimen/dim_36"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/for_tabmain_select"
+            android:inputType="textPassword"
+            android:paddingStart="@dimen/dp_10" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/info_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名"
+                android:textSize="@dimen/dim_sp_20" />
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_width="@dimen/dim_400"
+                android:layout_height="@dimen/dim_36"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/login_edit_back"
+                android:paddingStart="@dimen/dp_10" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="验证码"
+                android:textSize="@dimen/dim_sp_20" />
+
+            <EditText
+                android:id="@+id/verifyCode"
+                android:layout_width="@dimen/dim_400"
+                android:layout_height="@dimen/dim_36"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/login_edit_back"
+                android:inputType="number"
+                android:paddingStart="@dimen/dp_10" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textSize="@dimen/dim_sp_20" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="@dimen/dim_400"
+                android:layout_height="@dimen/dim_36"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/login_edit_back"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/dp_10" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/seenCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:text="获取验证码"
+        android:textSize="@dimen/dim_sp_20"
+        app:layout_constraintBottom_toBottomOf="@id/info_box"
+        app:layout_constraintEnd_toEndOf="@id/info_box"
+        app:layout_constraintTop_toTopOf="@id/info_box" />
+
+
+    <TextView
+
+        android:id="@+id/login"
+        android:layout_width="@dimen/dim_180"
+        android:layout_height="@dimen/dim_36"
+        android:layout_marginTop="@dimen/dim_sp_20"
+        android:background="@drawable/login_botton_back"
+        android:gravity="center"
+        android:paddingVertical="@dimen/dp_10"
+        android:text="@string/register"
+        android:textSize="@dimen/dim_sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mark_box" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/upload"
+        android:layout_width="@dimen/dim_400"
+        android:layout_height="@dimen/dim_180"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="upload.json" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

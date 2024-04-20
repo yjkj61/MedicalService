@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:strokeColor="#00FFFFFF"
+        app:cardCornerRadius="45dp">
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/user_header"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/add_user_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/isYou"
+                android:gravity="center"
+                android:background="#28616161"
+                android:text="当前"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名-1"
+        android:textColor="#ff4d4d4d"
+        android:textSize="28sp"
+        android:layout_marginStart="10dp"/>
+
+</LinearLayout>
