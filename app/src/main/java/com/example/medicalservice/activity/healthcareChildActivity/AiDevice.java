@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +36,8 @@ import com.example.medicalservice.baseFile.BaseActivity;
 import com.example.medicalservice.bean.AIDeviceBean;
 import com.example.medicalservice.bean.BluetoothBean;
 import com.example.medicalservice.bean.DeviceBean;
+import com.example.medicalservice.bean.HardwareDictBean;
+import com.example.medicalservice.bean.OwnerHardwareListBean;
 import com.example.medicalservice.bean.TestBean;
 import com.example.medicalservice.dataBaseBean.UserBean;
 import com.example.medicalservice.databinding.ActivityAiDeviceBinding;
@@ -42,7 +46,11 @@ import com.example.medicalservice.recycleAdapter.DialogSelectAdapter;
 import com.example.medicalservice.tools.API;
 import com.example.medicalservice.tools.OkHttpUtil;
 import com.example.medicalservice.tools.SpUtils;
+import com.example.medicalservice.tools.ToastUtil;
 import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -88,7 +96,7 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
         super.initData();
 
 
-        getDevice();
+//        getDevice();
         List<DeviceBean> deviceBeans = new ArrayList<>();
 
         deviceBeans.add(new DeviceBean("脉搏波血压计", "脉搏波血压计", R.drawable.xueya, "xueya"));
@@ -157,6 +165,146 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getOwnerHardwareList();
+    }
+
+    //获取新的硬件列表
+    private void getOwnerHardwareList() {
+        OkHttpUtil.getInstance().doGet(API.ownerHardwareList, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                OwnerHardwareListBean bean = new Gson().fromJson(response.body().string(), OwnerHardwareListBean.class);
+                if (bean.getCode() != 200) {
+                    activity.runOnUiThread(() -> showToast("请求失败"));
+                    return;
+                }
+
+                runOnUiThread(() -> {
+                    MsAdapter msAdapter = new MsAdapter<OwnerHardwareListBean.DataDTO>(bean.getData(), R.layout.ai_device_grid_item) {
+
+                        @Override
+                        public void bindView(ViewHolder holder, OwnerHardwareListBean.DataDTO obj) {
+
+                            LinearLayout layout = holder.getView(R.id.layout);
+                            ImageView imageView = holder.getView(R.id.image);
+
+                            TextView name = holder.getView(R.id.name);
+                            TextView context = holder.getView(R.id.context);
+
+
+                            TextView add = holder.getView(R.id.add);
+                            TextView edit = holder.getView(R.id.edit);
+                            TextView delete = holder.getView(R.id.delete);
+
+                            if (obj.getOwnerId() == null) {
+                                add.setVisibility(View.VISIBLE);
+                                edit.setVisibility(View.GONE);
+                                delete.setVisibility(View.GONE);
+                            } else {
+                                add.setVisibility(View.GONE);
+                                edit.setVisibility(View.VISIBLE);
+                                delete.setVisibility(View.VISIBLE);
+                            }
+
+                            add.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);
+                                    Intent intent = new Intent();
+                                    intent.putExtra("ownerid", userBean.getOwnerId());
+                                    intent.putExtra("number", obj.getSerialNumber());
+                                    intent.putExtra("device_type", obj.getSerialType());
+                                    intent.putExtra("type", 0);
+                                    intent.setClass(AiDevice.this, AiDeviceDoActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                            edit.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);
+                                    Intent intent = new Intent();
+                                    intent.putExtra("id", obj.getId());
+                                    intent.putExtra("number", obj.getSerialNumber());
+                                    intent.putExtra("device_type", obj.getSerialType());
+                                    intent.putExtra("name", obj.getSerialName());
+                                    intent.putExtra("type", 1);
+                                    intent.setClass(AiDevice.this, AiDeviceDoActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                            delete.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    showDialogDelete(obj.getId());
+                                }
+                            });
+
+                            name.setText(obj.getSerialName());
+                            context.setText("您身边的健康助手");
+                            imageView.setImageResource(R.drawable.ai_box);
+                            layout.setBackgroundResource(R.drawable.ai_device_item_back3);
+
+                        }
+                    };
+
+                    viewBinding.aiDevices.setAdapter(msAdapter);
+                });
+
+            }
+        });
+    }
+
+    //删除
+    private void HarswareDelete(int id){
+        OkHttpUtil.getInstance().doDelete(API.ownerHardwareDo + "/" + id, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        getOwnerHardwareList();
+                    }
+                });
+            }
+        });
+    }
+
+    private void showDialogDelete(int id){
+        AlertDialog dialog = new AlertDialog.Builder(AiDevice.this)
+                .setTitle("提示")//设置标题
+                .setMessage("是否确定删除？")//设置要显示的内容
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();//销毁对话框
+                    }
+                })
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        ToastUtil.showToast("删除成功", AiDevice.this);
+                        HarswareDelete(id);
+                        dialogInterface.dismiss();//销毁对话框
+                    }
+                }).create();//create（）方法创建对话框
+        dialog.show();//显示对话框
+    }
 
     private void getDevice() {
 
@@ -173,7 +321,7 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
                     AIDeviceBean aiDeviceBean = new Gson().fromJson(response.body().string(), AIDeviceBean.class);
 
 
-                    if(aiDeviceBean.getCode() != 200){
+                    if (aiDeviceBean.getCode() != 200) {
                         activity.runOnUiThread(() -> showToast("请求失败"));
                         return;
                     }
@@ -237,7 +385,7 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
 
                                     AIDeviceBean.RowsDTO rowsDTO = new AIDeviceBean.RowsDTO();
 
-                                    if(userBean == null){
+                                    if (userBean == null) {
                                         showToast("请先登录");
                                         return;
                                     }
@@ -316,9 +464,9 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
         });
     }
 
-    private void deleteDialog(int id){
+    private void deleteDialog(int id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.Dialog_style);
-        View view = LayoutInflater.from(activity).inflate(R.layout.dialog_delete,null);
+        View view = LayoutInflater.from(activity).inflate(R.layout.dialog_delete, null);
 
         builder.setView(view);
         TextView left_btn, right_btn, text;

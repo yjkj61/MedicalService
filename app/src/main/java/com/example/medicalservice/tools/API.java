@@ -82,6 +82,15 @@ public class API {
     //硬件列表
     public static String hardwareList = hostHealth + "/hardware/list";
 
+    //智能硬件
+    public static String ownerHardwareList = ownerHost + "/ownerHardware/listNoPage";
+
+    //操作
+    public static String ownerHardwareDo = ownerHost + "/ownerHardware";
+
+    //设备字典项
+    public static String ownerHardwareDict = ownerHost + "/ownerHardware/dict";
+
     //删除硬件
     public static String hardwareList(int id) {
         return hostHealth + "/hardware/" + id;
