@@ -1,6 +1,7 @@
 package com.example.medicalservice.activity
 
 import android.os.Bundle
+import android.text.Html
 import com.example.medicalservice.R
 import com.example.medicalservice.baseFile.BaseActivity
 import com.example.medicalservice.bean.Row
@@ -16,7 +17,8 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetialBinding>() {
                 articleTitle.text = row.title
                 publishAuthor.text = row.articleCreatorName
                 publishTime.text = row.publishTime
-                articleContent.text = row.content.replace("<p>","").replace("</p>","").replace("<p></p>","")
+                articleContent.text = Html.fromHtml(row.content);
+//                articleContent.text = row.content.replace("<p>","").replace("</p>","").replace("<p></p>","")
             }
         }
     }

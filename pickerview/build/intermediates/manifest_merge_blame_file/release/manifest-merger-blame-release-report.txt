@@ -3,5 +3,6 @@
 3    package="com.bigkoo.pickerview" >
 4
 5    <uses-sdk android:minSdkVersion="14" />
+5-->D:\Git\sk\MedicalService\pickerview\src\main\AndroidManifest.xml
 6
 7</manifest>

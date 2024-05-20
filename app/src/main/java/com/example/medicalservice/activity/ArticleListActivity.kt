@@ -1,6 +1,7 @@
 package com.example.medicalservice.activity
 
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.medicalservice.baseFile.BaseActivity
 import com.example.medicalservice.bean.HomeBannerEntity
@@ -98,7 +99,7 @@ class ArticleListActivity : BaseActivity<ActivityArticleListBinding>() {
                         if (code == 200 && rows.isNotEmpty()) {
                             activity.runOnUiThread {
                                 viewBinding.articleRv.apply {
-                                    layoutManager = LinearLayoutManager(this@ArticleListActivity)
+                                    layoutManager = GridLayoutManager(this@ArticleListActivity, 1)
                                     adapter = articleAdapter
                                     articleAdapter.setArticleData(rows)
                                 }

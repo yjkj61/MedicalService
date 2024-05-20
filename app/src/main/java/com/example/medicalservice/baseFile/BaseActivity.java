@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -51,6 +53,8 @@ public class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
 
     private FrameLayout eyeCareView;
 
+    private GestureDetector gestureDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,8 +83,23 @@ public class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
 
 
     public void initView() {
+        gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                Log.i("GestureDetector", e2.getX() + "");
+                Log.i("GestureDetector1", e1.getX() + "");
+                if (e2.getX() - e1.getX() > 100 && Math.abs(velocityX) > Math.abs(velocityY) && e1.getX() < 300) {
+                    finish(); // 右滑手势，结束当前Activity
+                    return true;
+                }
+                return super.onFling(e1, e2, velocityX, velocityY);
+            }
+        });
+    }
 
-
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return gestureDetector.onTouchEvent(event);
     }
 
     public void initData() {

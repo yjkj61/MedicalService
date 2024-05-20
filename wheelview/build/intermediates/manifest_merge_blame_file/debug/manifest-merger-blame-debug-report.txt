@@ -3,5 +3,6 @@
 3    package="com.contrarywind.view" >
 4
 5    <uses-sdk android:minSdkVersion="14" />
+5-->D:\Git\sk\MedicalService\wheelview\src\main\AndroidManifest.xml
 6
 7</manifest>

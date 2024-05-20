@@ -59,6 +59,11 @@ public class API {
         return hostRestaurant + "/food/queryCanteenShelvingRFood";
     }
 
+    //菜单-新接口
+    public static String newFoodList() {
+        return hostRestaurant + "/book/noPageList";
+    }
+
     public static String placeOrder = hostRestaurant + "/order/placeOrder";
 
 
@@ -213,6 +218,9 @@ public class API {
     public static String orderRefundRefund  = hostRestaurant  +"/order/orderRefundRefund";
 
     public static String canteenList = hostRestaurant+ "/canteen/canteenlist";
+
+    public static String health_info = ownerHost+ "/owner/";
+
     //地址添加
     public static String area = hostShop + "/area";
 
@@ -262,6 +270,8 @@ public class API {
 
     public static String weather = hostSelf + "/self/index/weather";
 
+    public static String weather_new = hostSelf + "/self/index/getWeatherWeb";
+
     public static String homeBanner = bannerHost + "/chart/list";
 
 
@@ -291,6 +301,14 @@ public class API {
     public static String commentsFirst = hostShop + "/commentsFirst";
 
     public static String commentsFirstList = hostShop + "/commentsFirst/list?isShow=0&";
+
+    public static String UserJiFen = hostShop + "/level/getUser";
+
+    public static String LevelList = hostShop + "/level/listAndroid";
+
+    public static String Specifications = hostShop + "/attributeAssociation/selectByGoodsId/";
+
+    public static String AfterSales = hostShop + "/goods/";
 
     public static String lastPhysicalExamination = hostHealth + "/oxygen/lastPhysicalExamination/";
 

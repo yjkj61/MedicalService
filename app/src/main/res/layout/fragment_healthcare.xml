@@ -37,7 +37,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-
                         <LinearLayout
                             android:id="@+id/blood_pressure"
                             android:layout_width="@dimen/bee_width"
@@ -57,7 +56,6 @@
                                 android:id="@+id/tension"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:textColor="#ff595959"
                                 android:textSize="@dimen/bee_bottom_text" />
 
@@ -256,7 +254,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="0.8"
                     android:orientation="vertical">
 
@@ -305,7 +304,7 @@
                             android:textSize="@dimen/dim_sp_14" />
 
                         <TextView
-
+                            android:id="@+id/tv_health_state"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
@@ -313,7 +312,6 @@
                             android:background="@drawable/health_level_back"
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
-                            android:text="优  秀"
                             android:textColor="#ff4d4d4d"
                             android:textSize="@dimen/dim_sp_14"  />
 
@@ -398,6 +396,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/linear_rgwz"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="5dp"

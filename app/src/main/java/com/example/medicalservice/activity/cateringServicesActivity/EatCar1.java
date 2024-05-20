@@ -125,11 +125,12 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
         viewBinding.canteenName.setText(MyApplication.getInstance().getrFoodCanteenName());
         updateMoney(handler);
 
-        try {
-            getFoodList();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            getFoodList();
+            getFoodListNew();
+//        } catch (JSONException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
@@ -164,6 +165,110 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
         jsonObject.put("rFoodCommunityOrPrivate","0");
 
         OkHttpUtil.getInstance().doPost(API.foodList(),jsonObject.toString(), new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                DecimalFormat df = new DecimalFormat("#.00");
+                String json = Objects.requireNonNull(response.body()).string();
+
+                FoodListBean foodListBean = new Gson().fromJson(json, FoodListBean.class);
+
+                if (foodListBean.getCode() == 200) {
+                    runOnUiThread(() -> {
+                        MsAdapter msAdapter = new MsAdapter<FoodListBean.RowsDTO>(foodListBean.getRows(), R.layout.car_menu_item) {
+
+
+                            @SuppressLint({"SetTextI18n", "NotifyDataSetChanged", "DefaultLocale"})
+                            @Override
+                            public void bindView(ViewHolder holder, FoodListBean.RowsDTO obj) {
+                                ImageView imageView = holder.getView(R.id.image);
+                                TextView foodName = holder.getView(R.id.foodName);
+                                TextView rFoodPrice = holder.getView(R.id.rFoodPrice);
+
+                                ImageView add = holder.getView(R.id.add);
+
+                                GlideUtils.load(activity, obj.getRFoodPic(), imageView, R.drawable.good_test,20);
+                                foodName.setText(obj.getRFoodName());
+                                double foodPrice = obj.getRFoodPrice();
+                                rFoodPrice.setText(String.format("%.2f",foodPrice));
+
+                                add.setOnClickListener(v -> {
+
+                                    if(obj.getRFoodIsorder()==1){
+                                        showToast("售罄");
+                                        return;
+                                    }
+
+
+                                    CarFoodListBean carFoodListBean = new CarFoodListBean();
+
+                                    if (foodList.size() == 0) {
+                                        carFoodListBean.setId(obj.getRFoodId());
+                                        carFoodListBean.setImageUrl(obj.getRFoodPic());
+                                        carFoodListBean.setName(obj.getRFoodName());
+                                        carFoodListBean.setSinglePrice(obj.getRFoodPrice());
+                                        carFoodListBean.setPrice(obj.getRFoodPrice());
+                                        carFoodListBean.setPrice(obj.getRFoodPrice());
+                                        carFoodListBean.setNumber(1);
+                                        carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
+                                        carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+
+                                        foodList.add(carFoodListBean);
+                                    } else {
+
+                                        if (haveIt(foodList, obj.getRFoodId())) {
+                                            for (int i = 0; i < foodList.size(); i++) {
+                                                CarFoodListBean carFood = foodList.get(i);
+                                                if (carFood.getId() == obj.getRFoodId()) {
+                                                    carFood.setNumber(carFood.getNumber() + 1);
+                                                    carFood.setPrice(carFood.getPrice() + carFood.getSinglePrice());
+                                                }
+                                            }
+                                        } else {
+                                            carFoodListBean.setId(obj.getRFoodId());
+                                            carFoodListBean.setImageUrl(obj.getRFoodPic());
+                                            carFoodListBean.setName(obj.getRFoodName());
+                                            carFoodListBean.setSinglePrice(obj.getRFoodPrice());
+                                            carFoodListBean.setPrice(obj.getRFoodPrice());
+                                            carFoodListBean.setNumber(1);
+                                            carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
+                                            carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+
+                                            foodList.add(carFoodListBean);
+                                        }
+
+
+                                    }
+
+                                    adapter.notifyDataSetChanged();
+
+                                    double totalMoney = 0;
+                                    for (CarFoodListBean bean : foodList) {
+                                        totalMoney = plus(String.valueOf(totalMoney), String.valueOf(bean.getPrice()));
+                                    }
+                                    viewBinding.totalMoney.setText(String.format("%.2f",totalMoney) + "");
+                                });
+
+
+                            }
+                        };
+
+                        viewBinding.menuGrid.setAdapter(msAdapter);
+
+                    });
+                } else {
+                    runOnUiThread(() -> showToast("请求失败,请联系管理员"));
+                }
+            }
+        });
+    }
+
+    public void getFoodListNew(){
+        OkHttpUtil.getInstance().doGet(API.newFoodList(), new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
 

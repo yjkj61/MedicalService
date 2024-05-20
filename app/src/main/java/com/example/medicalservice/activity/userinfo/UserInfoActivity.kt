@@ -289,24 +289,32 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>() {
                     val rows = familyHistoryBean.rows
                     if(rows.isNotEmpty()){
                         val first = rows.first()
-                        father = first.father.split(",").toMutableList().map {
-                            MedicalHistoryAdapter.MedicalHisBean(it)
-                        }.toMutableList()
+                        first.father?.let {
+                            father = it.split(",").toMutableList().map {
+                                MedicalHistoryAdapter.MedicalHisBean(it)
+                            }.toMutableList()
+                        }
                         father.add(MedicalHistoryAdapter.MedicalHisBean("编辑"))
                         father.add(MedicalHistoryAdapter.MedicalHisBean("添加"))
-                        mother = first.mother.split(",").toMutableList().map {
-                            MedicalHistoryAdapter.MedicalHisBean(it)
-                        }.toMutableList()
+                        first.mother?.let {
+                            mother = it.split(",").toMutableList().map {
+                                MedicalHistoryAdapter.MedicalHisBean(it)
+                            }.toMutableList()
+                        }
                         mother.add(MedicalHistoryAdapter.MedicalHisBean("编辑"))
                         mother.add(MedicalHistoryAdapter.MedicalHisBean("添加"))
-                        children = first.children.split(",").toMutableList().map {
-                            MedicalHistoryAdapter.MedicalHisBean(it)
-                        }.toMutableList()
+                        first.children?.let {
+                            children = it.split(",").toMutableList().map {
+                                MedicalHistoryAdapter.MedicalHisBean(it)
+                            }.toMutableList()
+                        }
                         children.add(MedicalHistoryAdapter.MedicalHisBean("编辑"))
                         children.add(MedicalHistoryAdapter.MedicalHisBean("添加"))
-                        sibling = first.sibling.split(",").toMutableList().map {
-                            MedicalHistoryAdapter.MedicalHisBean(it)
-                        }.toMutableList()
+                        first.sibling?.let {
+                            sibling = it.split(",").toMutableList().map {
+                                MedicalHistoryAdapter.MedicalHisBean(it)
+                            }.toMutableList()
+                        }
                         sibling.add(MedicalHistoryAdapter.MedicalHisBean("编辑"))
                         sibling.add(MedicalHistoryAdapter.MedicalHisBean("添加"))
                         runOnUiThread {
@@ -448,7 +456,7 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>() {
                     val string = it.string()
                     val familyBean = Gson().fromJson(string, UserFamilyBean::class.java)
                     val data = familyBean.data
-                    data.forEachIndexed { index, dataXX ->
+                    data?.forEachIndexed { index, dataXX ->
                         if(index <= 1){
                             list.add(PersonChargeAdapter.PersonChargeBean("家属",dataXX.familyMemberName,dataXX.familyMemberPhone,dataXX.familyMemberId.toString(),dataXX.familyMemberSex,dataXX.familyMemberEcontact))
                         }

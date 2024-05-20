@@ -1,5 +1,6 @@
 package com.example.medicalservice.recycleAdapter
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,8 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ArticleListVH
         holder.apply {
             data[position].apply {
                 titleText?.text = title
-                contentText?.text = content.replace("<p>","").replace("</p>","").replace("<p></p>","")
+                contentText?.text = Html.fromHtml(content)
+//                contentText?.text = content.replace("<p>","").replace("</p>","").replace("<p></p>","")
                 GlideUtils.load(holder.itemView.context,articleImage,imageCover)
                 publishAuthor?.text = articleCreatorName
                 publishTimeText?.text = publishTime

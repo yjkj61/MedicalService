@@ -306,8 +306,8 @@ public class GoodDetailView extends BaseActivity<ActivityGooddetailViewBinding> 
                         });
                         runOnUiThread(() -> {
                             fragments.add(GoodsIntroduceFragment.newInstance(dataDTO.getGoodsDetailsImages()));
-                            fragments.add(GoodSpecificationFragment.newInstance());
-                            fragments.add(AfterSaleFragment.newInstance());
+                            fragments.add(GoodSpecificationFragment.newInstance(goodId));
+                            fragments.add(AfterSaleFragment.newInstance(goodId));
                             fragments.add(GoodJudgeFragment.newInstance(goodId));
 
                             if (dataDTO.getGoodsCollectStatus() != 0) {
