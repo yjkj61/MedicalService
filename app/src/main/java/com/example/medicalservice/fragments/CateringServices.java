@@ -85,7 +85,7 @@ public class CateringServices extends BaseFragment<FragmentCateringServicesBindi
         viewBinding.btnLeft.setOnClickListener(v -> {
 
             if (!MyApplication.getInstance().getMarkId().isEmpty()) {
-                go(EatCar1.class);
+                go(EatCar1.class, "0");
             }else {
                 showToast("无食堂供应");
             }
@@ -94,7 +94,7 @@ public class CateringServices extends BaseFragment<FragmentCateringServicesBindi
         });
         viewBinding.btnRight.setOnClickListener(v -> {
             if (!MyApplication.getInstance().getMarkId().isEmpty()) {
-                go(EatCar2.class);
+                go(EatCar2.class, "1");
             }else {
                 showToast("无食堂供应");
             }

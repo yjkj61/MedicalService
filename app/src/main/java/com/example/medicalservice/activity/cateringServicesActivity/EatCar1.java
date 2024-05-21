@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,6 +54,8 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
 
     public static Activity mActivity;
 
+    private String type = "0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +67,7 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
         super.initView();
         mActivity = this;
 
-
+        type = getIntent().getStringExtra("msg");
         viewBinding.seeAll.setOnClickListener(v -> go(OrderListActivity.class));
 
         adapter = new CarMenuAdapter(foodList);
@@ -268,7 +271,8 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
     }
 
     public void getFoodListNew(){
-        OkHttpUtil.getInstance().doGet(API.newFoodList(), new Callback() {
+        OkHttpUtil.getInstance().doGet(API.newFoodList() + "rFoodCanteenId=" + MyApplication.getInstance().getrFoodCanteenId()
+                + "&rFoodCommunityOrPrivate=" + type, new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
 

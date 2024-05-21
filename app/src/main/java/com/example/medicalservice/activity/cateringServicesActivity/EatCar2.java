@@ -72,6 +72,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
     AdapterEatList adapterEatList;
 
     public static Activity mActivity;
+
+    private String type = "0";
     Handler handler = new Handler(msg -> {
 
         String money = (String) msg.obj;
@@ -85,11 +87,13 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
         viewBinding.canteenName.setText(MyApplication.getInstance().getrFoodCanteenName());
         updateMoney(handler);
 
-        try {
-            getMenuList();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+        getNewMenuList();
+
+//        try {
+//            getMenuList();
+//        } catch (JSONException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
@@ -98,7 +102,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
 
         mActivity = this;
 
-        markId = getIntent().getStringExtra("msg");
+        type = getIntent().getStringExtra("msg");
+//        markId = getIntent().getStringExtra("msg");
         markName = getIntent().getStringExtra("msg2");
         viewBinding.seeAll.setOnClickListener(v -> go(OrderListActivity.class));
         viewBinding.catering.setOnClickListener(v -> {
@@ -177,6 +182,63 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
         }
 
         viewBinding.money.setText(money + "");
+    }
+
+    private void getNewMenuList(){
+        types.clear();
+        OkHttpUtil.getInstance().doGet(API.newFoodList() + "rFoodCanteenId=" + MyApplication.getInstance().getrFoodCanteenId()
+                + "&rFoodCommunityOrPrivate=" + type, new Callback() {
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                String json = Objects.requireNonNull(response.body()).string();
+
+                FoodListBean foodListBean = new Gson().fromJson(json, FoodListBean.class);
+
+
+                if (foodListBean.getCode() == 200) {
+                    types.add("当季新品");
+                    for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+                        if (!types.contains(row.getRFoodType())) types.add(row.getRFoodType());
+                    }
+
+
+                    for (String type : types) {
+                        MenuSlideBean menuSlideBean = new MenuSlideBean();
+                        menuSlideBean.setName(type);
+                        List<FoodListBean.RowsDTO> allFoods = new ArrayList<>();
+
+                        menuSlideBean.setSelect(type.equals("当季新品"));
+
+                        for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+
+                            if (type.equals("当季新品") && row.getrFoodNewStatus() == 0) {
+                                allFoods.add(row);
+                            }
+                            if (row.getRFoodType().contains(type)) {
+                                allFoods.add(row);
+                            }
+                        }
+                        menuSlideBean.setFoodList(allFoods);
+                        menuSlideBeans.add(menuSlideBean);
+
+                    }
+                    if (menuSlideBeans.size() == 0) return;
+
+                    runOnUiThread(() -> {
+                        adapterEatList.notifyDataSetChanged();
+                        adapterMenu.notifyDataSetChanged();
+                    });
+
+                } else {
+                    runOnUiThread(() -> showToast("请求失败,请联系管理员"));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+        });
     }
 
     private void getMenuList() throws JSONException {

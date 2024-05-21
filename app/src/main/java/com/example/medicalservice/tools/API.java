@@ -61,7 +61,7 @@ public class API {
 
     //菜单-新接口
     public static String newFoodList() {
-        return hostRestaurant + "/book/noPageList";
+        return hostRestaurant + "/book/noPageList?";
     }
 
     public static String placeOrder = hostRestaurant + "/order/placeOrder";

@@ -170,6 +170,12 @@ public class ShopMyCenter extends BaseActivity<ActivityShopMyCenterBinding> {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 try {
                     JSONObject jsonObject = new JSONObject(response.body().string());
+                    String code = jsonObject.getString("code");
+                    String msg = jsonObject.getString("msg");
+                    if (!"200".equals(code)){
+                        showToast(msg);
+                        return;
+                    }
                     int jifen = jsonObject.getInt("data");
                     for (int i = 0; i < list_level.size();i++){
                         if (jifen >= list_level.get(i).getGrowthValueBegin() && jifen < list_level.get(i).getGrowthValueEnd()){

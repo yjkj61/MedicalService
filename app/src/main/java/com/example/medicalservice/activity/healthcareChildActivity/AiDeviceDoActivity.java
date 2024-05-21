@@ -110,8 +110,8 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         viewBinding.tvHardware.setText(list_device[which]);
-                        number = list_dict.get(which).getDictCode();
-                        device_type = list_dict.get(which).getDictType();
+                        number = Integer.parseInt(list_dict.get(which).getDictValue());
+                        device_type = Integer.parseInt(list_dict.get(which).getDictValue());
                     }
                 }).create();
         dialog.show();
