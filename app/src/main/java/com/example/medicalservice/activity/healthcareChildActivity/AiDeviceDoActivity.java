@@ -89,7 +89,7 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                 if (type == 0){
                     HarswareAdd(ownerid, number, device_type);
                 }else if (type == 1){
-                    HarswareEdit(id, number, device_type);
+                    HarswareEdit(id, device_type);
                 }
             }
         });
@@ -112,6 +112,7 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                         viewBinding.tvHardware.setText(list_device[which]);
                         number = Integer.parseInt(list_dict.get(which).getDictValue());
                         device_type = Integer.parseInt(list_dict.get(which).getDictValue());
+                        dialog.dismiss();
                     }
                 }).create();
         dialog.show();
@@ -148,10 +149,10 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
     }
 
     //修改
-    private void HarswareEdit(int id, long num, int type){
+    private void HarswareEdit(int id, int type){
         OwnerHardwareListBean.DataDTO data = new OwnerHardwareListBean.DataDTO();
         data.setId(id);
-        data.setSerialNumber(num);
+        data.setSerialNumber((long) device_type);
         data.setSerialType(type);
         OkHttpUtil.getInstance().doPut(API.ownerHardwareDo, new Gson().toJson(data), new Callback() {
             @Override
