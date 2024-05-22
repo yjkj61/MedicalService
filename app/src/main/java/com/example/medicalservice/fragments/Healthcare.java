@@ -29,6 +29,7 @@ import com.example.medicalservice.bean.HealthInfoBean;
 import com.example.medicalservice.bean.HomeCommentBean;
 import com.example.medicalservice.bean.LastPhysicalExamination;
 import com.example.medicalservice.bean.NewWeatherBean;
+import com.example.medicalservice.bean.SleepInfoBean;
 import com.example.medicalservice.bean.UseMedTipListBean;
 import com.example.medicalservice.bean.UserHealthDataBean;
 import com.example.medicalservice.dataBaseBean.UserBean;
@@ -114,6 +115,8 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         viewBinding.uricAcid.setOnClickListener(v -> go(BloodOxygen.class, "尿酸"));
         viewBinding.cholesterol.setOnClickListener(v -> go(BloodOxygen.class, "胆固醇"));
         viewBinding.bloodFat.setOnClickListener(v -> go(BloodFat.class));
+
+        getSleepInfo();
     }
 
     @Override
@@ -136,12 +139,12 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         //viewBinding.userHeader
     }
 
+    List<UserHealthDataBean> userHealthDataBeans = new ArrayList<>();
 
     @Override
     public void initData() {
         super.initData();
 
-        List<UserHealthDataBean> userHealthDataBeans = new ArrayList<>();
         userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.to_day_sleep), 0.05, "0"));
 
         userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.week_sleep), 0.05, "0"));
@@ -155,6 +158,29 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
 
     }
 
+    //获取定位和天气
+    private void getSleepInfo() {
+        OkHttpUtil.getInstance().doGet(API.sleep_info, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.body() != null) {
+                    SleepInfoBean bean = new Gson().fromJson(response.body().string(), SleepInfoBean.class);
+                    if (bean.getCode() == 200){
+                        userHealthDataBeans.get(0).setProgress(Integer.parseInt(bean.getData().getTodaySleep()));
+                        userHealthDataBeans.get(0).setTextValue(bean.getData().getTodaySleep());
+                        userHealthDataBeans.get(1).setProgress(Integer.parseInt(bean.getData().getWeekSleep()));
+                        userHealthDataBeans.get(1).setTextValue(bean.getData().getWeekSleep());
+                        userHealthDataAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+    }
 
     private void initHeathData() {
         UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);

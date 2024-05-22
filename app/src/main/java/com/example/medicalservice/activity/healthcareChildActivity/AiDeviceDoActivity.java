@@ -112,6 +112,7 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                         viewBinding.tvHardware.setText(list_device[which]);
                         number = Integer.parseInt(list_dict.get(which).getDictValue());
                         device_type = Integer.parseInt(list_dict.get(which).getDictValue());
+                        position_temp = which;
                         dialog.dismiss();
                     }
                 }).create();
@@ -141,6 +142,11 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                     list_device = new String[list_dict.size()];
                     for (int i = 0; i < list_dict.size(); i++){
                         list_device[i] = list_dict.get(i).getDictLabel();
+                        if (type == 1){
+                            if (getIntent().getStringExtra("name").equals(list_dict.get(i).getDictLabel())){
+                                position_temp = i;
+                            }
+                        }
                     }
                 }
 
@@ -162,7 +168,12 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                showToast("修改成功");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("修改成功");
+                    }
+                });
                 finish();
             }
         });
@@ -187,7 +198,12 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                showToast("新增成功");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("新增成功");
+                    }
+                });
                 finish();
             }
         });

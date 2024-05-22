@@ -47,8 +47,6 @@ import okhttp3.ResponseBody;
 
 public class CateringServices extends BaseFragment<FragmentCateringServicesBinding> {
 
-
-
     public CateringServices() {
     }
 

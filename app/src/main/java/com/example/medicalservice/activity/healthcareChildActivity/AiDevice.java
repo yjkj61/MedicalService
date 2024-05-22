@@ -191,30 +191,47 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
                     MsAdapter msAdapter = new MsAdapter<OwnerHardwareListBean.DataDTO>(bean.getData(), R.layout.ai_device_grid_item) {
 
                         @Override
+                        public int getCount() {
+                            return bean.getData() != null ? (bean.getData().size() + 1) : 1;
+                        }
+
+                        @Override
+                        public OwnerHardwareListBean.DataDTO getItem(int position) {
+                            if (position == bean.getData().size()){
+                                return bean.getData().get(bean.getData().size() - 1);
+                            }else{
+                                return bean.getData().get(position);
+                            }
+                        }
+
+                        @Override
                         public void bindView(ViewHolder holder, OwnerHardwareListBean.DataDTO obj) {
 
                             LinearLayout layout = holder.getView(R.id.layout);
+                            LinearLayout linear_device = holder.getView(R.id.linear_device);
                             ImageView imageView = holder.getView(R.id.image);
+                            ImageView ig_add = holder.getView(R.id.ig_add);
 
                             TextView name = holder.getView(R.id.name);
                             TextView context = holder.getView(R.id.context);
 
 
-                            TextView add = holder.getView(R.id.add);
                             TextView edit = holder.getView(R.id.edit);
                             TextView delete = holder.getView(R.id.delete);
 
-                            if (obj.getOwnerId() == null) {
-                                add.setVisibility(View.VISIBLE);
-                                edit.setVisibility(View.GONE);
-                                delete.setVisibility(View.GONE);
-                            } else {
-                                add.setVisibility(View.GONE);
-                                edit.setVisibility(View.VISIBLE);
-                                delete.setVisibility(View.VISIBLE);
+                            if (holder.getItemPosition() == bean.getData().size()){
+                                linear_device.setVisibility(View.GONE);
+                                ig_add.setVisibility(View.VISIBLE);
+                            }else{
+                                linear_device.setVisibility(View.VISIBLE);
+                                ig_add.setVisibility(View.GONE);
+                                name.setText(obj.getSerialName());
+                                context.setText("您身边的健康助手");
+                                imageView.setImageResource(R.drawable.ai_box);
+                                layout.setBackgroundResource(R.drawable.ai_device_item_back3);
                             }
 
-                            add.setOnClickListener(new View.OnClickListener() {
+                            ig_add.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);
@@ -249,11 +266,6 @@ public class AiDevice extends BaseActivity<ActivityAiDeviceBinding> {
                                     showDialogDelete(obj.getId());
                                 }
                             });
-
-                            name.setText(obj.getSerialName());
-                            context.setText("您身边的健康助手");
-                            imageView.setImageResource(R.drawable.ai_box);
-                            layout.setBackgroundResource(R.drawable.ai_device_item_back3);
 
                         }
                     };

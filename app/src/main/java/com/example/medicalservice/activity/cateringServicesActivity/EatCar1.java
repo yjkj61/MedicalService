@@ -22,6 +22,7 @@ import com.example.medicalservice.activity.cateringServicesActivity.Order.PayOrd
 import com.example.medicalservice.baseFile.BaseActivity;
 import com.example.medicalservice.bean.CarFoodListBean;
 import com.example.medicalservice.bean.FoodListBean;
+import com.example.medicalservice.bean.FoodListNewBean;
 import com.example.medicalservice.databinding.ActivityEatCar1Binding;
 import com.example.medicalservice.fragments.CateringServices;
 import com.example.medicalservice.recycleAdapter.CarMenuAdapter;
@@ -283,16 +284,18 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
                 DecimalFormat df = new DecimalFormat("#.00");
                 String json = Objects.requireNonNull(response.body()).string();
 
-                FoodListBean foodListBean = new Gson().fromJson(json, FoodListBean.class);
+//                Log.i("getFoodListNew", json);
+
+                FoodListNewBean foodListBean = new Gson().fromJson(json, FoodListNewBean.class);
 
                 if (foodListBean.getCode() == 200) {
                     runOnUiThread(() -> {
-                        MsAdapter msAdapter = new MsAdapter<FoodListBean.RowsDTO>(foodListBean.getRows(), R.layout.car_menu_item) {
+                        MsAdapter msAdapter = new MsAdapter<FoodListNewBean.DataDTO>(foodListBean.getData(), R.layout.car_menu_item) {
 
 
                             @SuppressLint({"SetTextI18n", "NotifyDataSetChanged", "DefaultLocale"})
                             @Override
-                            public void bindView(ViewHolder holder, FoodListBean.RowsDTO obj) {
+                            public void bindView(ViewHolder holder, FoodListNewBean.DataDTO obj) {
                                 ImageView imageView = holder.getView(R.id.image);
                                 TextView foodName = holder.getView(R.id.foodName);
                                 TextView rFoodPrice = holder.getView(R.id.rFoodPrice);
@@ -322,9 +325,8 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
                                         carFoodListBean.setPrice(obj.getRFoodPrice());
                                         carFoodListBean.setPrice(obj.getRFoodPrice());
                                         carFoodListBean.setNumber(1);
-                                        carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
-                                        carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
-
+                                        carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                                        carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
                                         foodList.add(carFoodListBean);
                                     } else {
 
@@ -343,8 +345,8 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
                                             carFoodListBean.setSinglePrice(obj.getRFoodPrice());
                                             carFoodListBean.setPrice(obj.getRFoodPrice());
                                             carFoodListBean.setNumber(1);
-                                            carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
-                                            carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+                                            carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                                            carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
 
                                             foodList.add(carFoodListBean);
                                         }
