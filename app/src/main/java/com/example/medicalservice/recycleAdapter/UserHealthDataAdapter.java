@@ -53,10 +53,10 @@ public class UserHealthDataAdapter extends RecyclerView.Adapter<UserHealthDataAd
         holder.progress_total.post(() -> {
             int width = holder.progress_total.getMeasuredWidth();
 
-            if (position == 0){
-                holder.progress_value.setLayoutParams(new LinearLayout.LayoutParams((int) (userHealthDataBean.getProgress() * width * 0.01), holder.progress_value.getHeight()));
-            }else{
-                holder.progress_value.setLayoutParams(new LinearLayout.LayoutParams((int) (userHealthDataBean.getProgress() * width * 0.0014), holder.progress_value.getHeight()));
+            if (position == 0) {
+                holder.progress_value.setLayoutParams(new LinearLayout.LayoutParams((int) (userHealthDataBean.getProgress() * width * 0.0007), holder.progress_value.getHeight()));
+            } else {
+                holder.progress_value.setLayoutParams(new LinearLayout.LayoutParams((int) (userHealthDataBean.getProgress() * width * 0.0001), holder.progress_value.getHeight()));
             }
 
         });

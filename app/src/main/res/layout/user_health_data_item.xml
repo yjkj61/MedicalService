@@ -53,8 +53,9 @@
                         android:id="@+id/text_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp_4"
-                        android:text="00000"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="1"
                         android:textSize="@dimen/bee_bottom_text" />
                 </LinearLayout>
 
@@ -62,7 +63,7 @@
                     android:id="@+id/imageType"
                     android:layout_width="@dimen/dim_16"
                     android:layout_height="@dimen/dim_16"
-                    android:layout_marginStart="-4dp"
+                    android:layout_marginLeft="1dp"
                     android:src="@drawable/icon_health_list_walk" />
 
             </LinearLayout>
