@@ -55,6 +55,7 @@ import com.example.medicalservice.bean.HomeBannerEntity;
 import com.example.medicalservice.bean.HomeGridBean;
 import com.example.medicalservice.bean.NewWeatherBean;
 import com.example.medicalservice.bean.Row;
+import com.example.medicalservice.bean.SleepInfoBean;
 import com.example.medicalservice.bean.UpdateAppEntity;
 import com.example.medicalservice.databinding.FragmentHomeBinding;
 import com.example.medicalservice.recycleAdapter.BannerAdapter;
@@ -707,19 +708,19 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
 
         List<HomeGridBean> homeGridBeans = new ArrayList<>();
 
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_iqiyi));
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_iqiyi));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_cctv));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_aqy));
 
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_qqmusic));
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_tiktok));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_qqmusic));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_douyin));
 
         DisplayMetrics outMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(outMetrics);
         float widthPixel = (float) (outMetrics.widthPixels * 0.8);
 
-        float width = (float) widthPixel / 2 - 400;
+        float width = (float) widthPixel / 2 - 340;
 
-        float height = (float) (width / 1.7);
+        float height = (float) (width * 0.48);
 
         Log.d("TAG", "initPlayTv: " + width + "-----" + height);
 

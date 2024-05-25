@@ -23,6 +23,8 @@ public class API {
 
     public static final String hostRestaurant = "http://47.116.36.196:9233";
 
+    public static final String hostSleep = "http://47.116.36.196:9203";
+
 
     public static String hardwareHost = hostHealth + "/hardware/hardware/passBoxData";
 
@@ -280,6 +282,8 @@ public class API {
     public static String weather = hostSelf + "/self/index/weather";
 
     public static String weather_new = hostSelf + "/self/index/getWeatherWeb";
+
+    public static String sleep_info = hostSleep + "/report/androidBedReport";
 
     public static String homeBanner = bannerHost + "/chart/list";
 

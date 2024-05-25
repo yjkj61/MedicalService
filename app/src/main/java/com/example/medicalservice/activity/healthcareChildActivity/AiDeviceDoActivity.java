@@ -63,6 +63,7 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
             id = getIntent().getIntExtra("id", 0);
             number = getIntent().getLongExtra("number", 0);
             device_type = getIntent().getIntExtra("device_type", 0);
+            viewBinding.etCode.setText(number + "");
             viewBinding.tvHardware.setText(getIntent().getStringExtra("name"));
             viewBinding.tvTitle.setText("修改");
         }else if (type == 0){
@@ -86,10 +87,15 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                     showToast("请选择智能设备");
                     return;
                 }
+                if ("".equals(viewBinding.etCode.getText().toString())){
+                    showToast("请输入设备编号");
+                    return;
+                }
+                number = Long.parseLong(viewBinding.etCode.getText().toString());
                 if (type == 0){
                     HarswareAdd(ownerid, number, device_type);
                 }else if (type == 1){
-                    HarswareEdit(id, device_type);
+                    HarswareEdit(id, number, device_type);
                 }
             }
         });
@@ -110,8 +116,8 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         viewBinding.tvHardware.setText(list_device[which]);
-                        number = Integer.parseInt(list_dict.get(which).getDictValue());
                         device_type = Integer.parseInt(list_dict.get(which).getDictValue());
+                        position_temp = which;
                         dialog.dismiss();
                     }
                 }).create();
@@ -141,6 +147,11 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
                     list_device = new String[list_dict.size()];
                     for (int i = 0; i < list_dict.size(); i++){
                         list_device[i] = list_dict.get(i).getDictLabel();
+                        if (type == 1){
+                            if (getIntent().getStringExtra("name").equals(list_dict.get(i).getDictLabel())){
+                                position_temp = i;
+                            }
+                        }
                     }
                 }
 
@@ -149,10 +160,10 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
     }
 
     //修改
-    private void HarswareEdit(int id, int type){
+    private void HarswareEdit(int id, long number, int type){
         OwnerHardwareListBean.DataDTO data = new OwnerHardwareListBean.DataDTO();
         data.setId(id);
-        data.setSerialNumber((long) device_type);
+        data.setSerialNumber(number);
         data.setSerialType(type);
         OkHttpUtil.getInstance().doPut(API.ownerHardwareDo, new Gson().toJson(data), new Callback() {
             @Override
@@ -162,7 +173,12 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                showToast("修改成功");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("修改成功");
+                    }
+                });
                 finish();
             }
         });
@@ -187,7 +203,12 @@ public class AiDeviceDoActivity extends BaseActivity<ActivityHardwareDoBinding> 
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                showToast("新增成功");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("新增成功");
+                    }
+                });
                 finish();
             }
         });

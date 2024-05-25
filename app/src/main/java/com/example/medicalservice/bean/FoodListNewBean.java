@@ -10,7 +10,6 @@ import java.util.List;
  * @date: 2024/5/21
  */
 public class FoodListNewBean {
-
     @SerializedName("msg")
     private String msg;
     @SerializedName("code")
@@ -53,32 +52,52 @@ public class FoodListNewBean {
         private Object updateTime;
         @SerializedName("remark")
         private Object remark;
-        @SerializedName("rFoodBookId")
-        private Integer rFoodBookId;
         @SerializedName("rFoodId")
-        private String rFoodId;
+        private Integer rFoodId;
         @SerializedName("rFoodName")
         private String rFoodName;
         @SerializedName("rFoodTypeId")
-        private String rFoodTypeId;
+        private Integer rFoodTypeId;
         @SerializedName("rFoodType")
         private String rFoodType;
-        @SerializedName("meals")
-        private String meals;
-        @SerializedName("weeks")
-        private String weeks;
-        @SerializedName("rFoodBookTime")
-        private String rFoodBookTime;
+        @SerializedName("rFoodPrice")
+        private Double rFoodPrice;
+        @SerializedName("rFoodPackingCharge")
+        private Double rFoodPackingCharge;
+        @SerializedName("rFoodSpicyTasteId")
+        private Integer rFoodSpicyTasteId;
+        @SerializedName("rFoodSpicyTaste")
+        private String rFoodSpicyTaste;
+        @SerializedName("rFoodTasteId")
+        private Integer rFoodTasteId;
+        @SerializedName("number")
+        private Integer number = 0;
+        @SerializedName("rFoodTaste")
+        private String rFoodTaste;
+        @SerializedName("rFoodFlavorId")
+        private Integer rFoodFlavorId;
+        @SerializedName("rFoodFlavor")
+        private String rFoodFlavor;
+        @SerializedName("rFoodIsorder")
+        private Integer rFoodIsorder;
         @SerializedName("rFoodNewStatus")
-        private String rFoodNewStatus;
-        @SerializedName("selectedFoods")
-        private String selectedFoods;
-        @SerializedName("rFoodCommunityOrPrivate")
-        private Integer rFoodCommunityOrPrivate;
-        @SerializedName("rFoodCanteenId")
-        private Integer rFoodCanteenId;
-        @SerializedName("rFoodCanteenName")
-        private Object rFoodCanteenName;
+        private Integer rFoodNewStatus;
+        @SerializedName("rFoodNutritionDescription")
+        private String rFoodNutritionDescription;
+        @SerializedName("rFoodIngredientsDescription")
+        private String rFoodIngredientsDescription;
+        @SerializedName("rFoodTabooPopulationId")
+        private String rFoodTabooPopulationId;
+        @SerializedName("rFoodTabooPopulation")
+        private String rFoodTabooPopulation;
+        @SerializedName("rFoodTabooPopulationList")
+        private Object rFoodTabooPopulationList;
+        @SerializedName("rFoodPic")
+        private String rFoodPic;
+        @SerializedName("rFoodStatus")
+        private Integer rFoodStatus;
+        @SerializedName("rFoodOrder")
+        private Integer rFoodOrder;
         @SerializedName("userId")
         private Object userId;
         @SerializedName("userType")
@@ -87,12 +106,12 @@ public class FoodListNewBean {
         private Integer markerId;
         @SerializedName("markerName")
         private Object markerName;
-        @SerializedName("rFoodPrice")
-        private String rFoodPrice;
-        @SerializedName("rFoodPic")
-        private String rFoodPic;
-        @SerializedName("years")
-        private Object years;
+        @SerializedName("rFoodCanteenId")
+        private Integer rFoodCanteenId;
+        @SerializedName("rFoodCanteenName")
+        private String rFoodCanteenName;
+        @SerializedName("rFoodCommunityOrPrivate")
+        private Integer rFoodCommunityOrPrivate;
 
         public Object getCreateBy() {
             return createBy;
@@ -134,19 +153,11 @@ public class FoodListNewBean {
             this.remark = remark;
         }
 
-        public Integer getRFoodBookId() {
-            return rFoodBookId;
-        }
-
-        public void setRFoodBookId(Integer rFoodBookId) {
-            this.rFoodBookId = rFoodBookId;
-        }
-
-        public String getRFoodId() {
+        public Integer getRFoodId() {
             return rFoodId;
         }
 
-        public void setRFoodId(String rFoodId) {
+        public void setRFoodId(Integer rFoodId) {
             this.rFoodId = rFoodId;
         }
 
@@ -158,11 +169,11 @@ public class FoodListNewBean {
             this.rFoodName = rFoodName;
         }
 
-        public String getRFoodTypeId() {
+        public Integer getRFoodTypeId() {
             return rFoodTypeId;
         }
 
-        public void setRFoodTypeId(String rFoodTypeId) {
+        public void setRFoodTypeId(Integer rFoodTypeId) {
             this.rFoodTypeId = rFoodTypeId;
         }
 
@@ -174,68 +185,148 @@ public class FoodListNewBean {
             this.rFoodType = rFoodType;
         }
 
-        public String getMeals() {
-            return meals;
+        public Double getRFoodPrice() {
+            return rFoodPrice;
         }
 
-        public void setMeals(String meals) {
-            this.meals = meals;
+        public void setRFoodPrice(Double rFoodPrice) {
+            this.rFoodPrice = rFoodPrice;
         }
 
-        public String getWeeks() {
-            return weeks;
+        public Double getRFoodPackingCharge() {
+            return rFoodPackingCharge;
         }
 
-        public void setWeeks(String weeks) {
-            this.weeks = weeks;
+        public void setRFoodPackingCharge(Double rFoodPackingCharge) {
+            this.rFoodPackingCharge = rFoodPackingCharge;
         }
 
-        public String getRFoodBookTime() {
-            return rFoodBookTime;
+        public Integer getRFoodSpicyTasteId() {
+            return rFoodSpicyTasteId;
         }
 
-        public void setRFoodBookTime(String rFoodBookTime) {
-            this.rFoodBookTime = rFoodBookTime;
+        public void setRFoodSpicyTasteId(Integer rFoodSpicyTasteId) {
+            this.rFoodSpicyTasteId = rFoodSpicyTasteId;
         }
 
-        public String getRFoodNewStatus() {
+        public String getRFoodSpicyTaste() {
+            return rFoodSpicyTaste;
+        }
+
+        public void setRFoodSpicyTaste(String rFoodSpicyTaste) {
+            this.rFoodSpicyTaste = rFoodSpicyTaste;
+        }
+
+        public Integer getRFoodTasteId() {
+            return rFoodTasteId;
+        }
+
+        public void setRFoodTasteId(Integer rFoodTasteId) {
+            this.rFoodTasteId = rFoodTasteId;
+        }
+
+        public String getRFoodTaste() {
+            return rFoodTaste;
+        }
+
+        public void setRFoodTaste(String rFoodTaste) {
+            this.rFoodTaste = rFoodTaste;
+        }
+
+        public Integer getRFoodFlavorId() {
+            return rFoodFlavorId;
+        }
+
+        public void setRFoodFlavorId(Integer rFoodFlavorId) {
+            this.rFoodFlavorId = rFoodFlavorId;
+        }
+
+        public String getRFoodFlavor() {
+            return rFoodFlavor;
+        }
+
+        public void setRFoodFlavor(String rFoodFlavor) {
+            this.rFoodFlavor = rFoodFlavor;
+        }
+
+        public Integer getRFoodIsorder() {
+            return rFoodIsorder;
+        }
+
+        public void setRFoodIsorder(Integer rFoodIsorder) {
+            this.rFoodIsorder = rFoodIsorder;
+        }
+
+        public Integer getRFoodNewStatus() {
             return rFoodNewStatus;
         }
 
-        public void setRFoodNewStatus(String rFoodNewStatus) {
+        public void setRFoodNewStatus(Integer rFoodNewStatus) {
             this.rFoodNewStatus = rFoodNewStatus;
         }
 
-        public String getSelectedFoods() {
-            return selectedFoods;
+        public String getRFoodNutritionDescription() {
+            return rFoodNutritionDescription;
         }
 
-        public void setSelectedFoods(String selectedFoods) {
-            this.selectedFoods = selectedFoods;
+        public void setRFoodNutritionDescription(String rFoodNutritionDescription) {
+            this.rFoodNutritionDescription = rFoodNutritionDescription;
         }
 
-        public Integer getRFoodCommunityOrPrivate() {
-            return rFoodCommunityOrPrivate;
+        public String getRFoodIngredientsDescription() {
+            return rFoodIngredientsDescription;
         }
 
-        public void setRFoodCommunityOrPrivate(Integer rFoodCommunityOrPrivate) {
-            this.rFoodCommunityOrPrivate = rFoodCommunityOrPrivate;
+        public void setRFoodIngredientsDescription(String rFoodIngredientsDescription) {
+            this.rFoodIngredientsDescription = rFoodIngredientsDescription;
         }
 
-        public Integer getRFoodCanteenId() {
-            return rFoodCanteenId;
+        public String getRFoodTabooPopulationId() {
+            return rFoodTabooPopulationId;
         }
 
-        public void setRFoodCanteenId(Integer rFoodCanteenId) {
-            this.rFoodCanteenId = rFoodCanteenId;
+        public void setRFoodTabooPopulationId(String rFoodTabooPopulationId) {
+            this.rFoodTabooPopulationId = rFoodTabooPopulationId;
         }
 
-        public Object getRFoodCanteenName() {
-            return rFoodCanteenName;
+        public String getRFoodTabooPopulation() {
+            return rFoodTabooPopulation;
         }
 
-        public void setRFoodCanteenName(Object rFoodCanteenName) {
-            this.rFoodCanteenName = rFoodCanteenName;
+        public void setRFoodTabooPopulation(String rFoodTabooPopulation) {
+            this.rFoodTabooPopulation = rFoodTabooPopulation;
+        }
+
+        public Object getRFoodTabooPopulationList() {
+            return rFoodTabooPopulationList;
+        }
+
+        public void setRFoodTabooPopulationList(Object rFoodTabooPopulationList) {
+            this.rFoodTabooPopulationList = rFoodTabooPopulationList;
+        }
+
+        public String getRFoodPic() {
+            return rFoodPic;
+        }
+
+        public void setRFoodPic(String rFoodPic) {
+            this.rFoodPic = rFoodPic;
+        }
+
+        public Integer getRFoodStatus() {
+            return rFoodStatus;
+        }
+
+        public void setRFoodStatus(Integer rFoodStatus) {
+            this.rFoodStatus = rFoodStatus;
+        }
+
+        public Integer getRFoodOrder() {
+            return rFoodOrder;
+        }
+
+        public void setRFoodOrder(Integer rFoodOrder) {
+            this.rFoodOrder = rFoodOrder;
         }
 
         public Object getUserId() {
@@ -270,28 +361,36 @@ public class FoodListNewBean {
             this.markerName = markerName;
         }
 
-        public String getRFoodPrice() {
-            return rFoodPrice;
+        public Integer getRFoodCanteenId() {
+            return rFoodCanteenId;
         }
 
-        public void setRFoodPrice(String rFoodPrice) {
-            this.rFoodPrice = rFoodPrice;
+        public void setRFoodCanteenId(Integer rFoodCanteenId) {
+            this.rFoodCanteenId = rFoodCanteenId;
         }
 
-        public String getRFoodPic() {
-            return rFoodPic;
+        public String getRFoodCanteenName() {
+            return rFoodCanteenName;
         }
 
-        public void setRFoodPic(String rFoodPic) {
-            this.rFoodPic = rFoodPic;
+        public void setRFoodCanteenName(String rFoodCanteenName) {
+            this.rFoodCanteenName = rFoodCanteenName;
         }
 
-        public Object getYears() {
-            return years;
+        public Integer getRFoodCommunityOrPrivate() {
+            return rFoodCommunityOrPrivate;
         }
 
-        public void setYears(Object years) {
-            this.years = years;
+        public void setRFoodCommunityOrPrivate(Integer rFoodCommunityOrPrivate) {
+            this.rFoodCommunityOrPrivate = rFoodCommunityOrPrivate;
+        }
+
+        public Integer getNumber() {
+            return number;
+        }
+
+        public void setNumber(Integer number) {
+            this.number = number;
         }
     }
 }

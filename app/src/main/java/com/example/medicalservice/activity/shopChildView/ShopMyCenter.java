@@ -178,7 +178,7 @@ public class ShopMyCenter extends BaseActivity<ActivityShopMyCenterBinding> {
                     }
                     int jifen = jsonObject.getInt("data");
                     for (int i = 0; i < list_level.size();i++){
-                        if (jifen >= list_level.get(i).getGrowthValueBegin() && jifen < list_level.get(i).getGrowthValueEnd()){
+                        if (jifen >= list_level.get(i).getGrowthValueBegin() && list_level.get(i).getGrowthValueEnd() >= jifen){
                             int finalI = i;
                             runOnUiThread(new Runnable() {
                                 @Override
