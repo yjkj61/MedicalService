@@ -233,6 +233,7 @@
                     android:id="@+id/player"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:horizontalSpacing="0dp"
                     android:verticalSpacing="0dp"
@@ -243,7 +244,7 @@
                     android:id="@+id/apps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/home_card_back"
                     android:gravity="center"
                     android:numColumns="5"
@@ -256,7 +257,7 @@
                     layout="@layout/voice_weidgt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10" />
+                    android:layout_marginTop="15dp" />
 
 
             </LinearLayout>
