@@ -210,7 +210,6 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
 
                                 viewBinding.bloodOxygenSaturation.setText(lastPhysicalExamination.getData().getHBloodOxygenSaturation());
 
-
                                 viewBinding.bloodSugarValue.setText(lastPhysicalExamination.getData().getHBloodSugarValue());
 
                                 viewBinding.temperatureValue.setText(lastPhysicalExamination.getData().getHTemperatureValue());

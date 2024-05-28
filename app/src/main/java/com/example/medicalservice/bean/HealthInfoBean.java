@@ -176,7 +176,7 @@ public class HealthInfoBean {
         @SerializedName("ownerNurseAssess")
         private Object ownerNurseAssess;
         @SerializedName("markerId")
-        private Integer markerId;
+        private Long markerId;
         @SerializedName("markerName")
         private Object markerName;
         @SerializedName("userId")
@@ -764,11 +764,11 @@ public class HealthInfoBean {
             this.ownerNurseAssess = ownerNurseAssess;
         }
 
-        public Integer getMarkerId() {
+        public Long getMarkerId() {
             return markerId;
         }
 
-        public void setMarkerId(Integer markerId) {
+        public void setMarkerId(Long markerId) {
             this.markerId = markerId;
         }
 
