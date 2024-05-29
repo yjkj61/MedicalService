@@ -171,11 +171,16 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
                 if (response.body() != null) {
                     SleepInfoBean bean = new Gson().fromJson(response.body().string(), SleepInfoBean.class);
                     if (bean.getCode() == 200){
-                        userHealthDataBeans.get(0).setProgress(Integer.parseInt(bean.getData().getTodaySleep()));
-                        userHealthDataBeans.get(0).setTextValue(bean.getData().getTodaySleep());
-                        userHealthDataBeans.get(1).setProgress(Integer.parseInt(bean.getData().getWeekSleep()));
-                        userHealthDataBeans.get(1).setTextValue(bean.getData().getWeekSleep());
-                        userHealthDataAdapter.notifyDataSetChanged();
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                userHealthDataBeans.get(0).setProgress(Integer.parseInt(bean.getData().getTodaySleep()));
+                                userHealthDataBeans.get(0).setTextValue(bean.getData().getTodaySleep());
+                                userHealthDataBeans.get(1).setProgress(Integer.parseInt(bean.getData().getWeekSleep()));
+                                userHealthDataBeans.get(1).setTextValue(bean.getData().getWeekSleep());
+                                userHealthDataAdapter.notifyDataSetChanged();
+                            }
+                        });
                     }
                 }
             }
