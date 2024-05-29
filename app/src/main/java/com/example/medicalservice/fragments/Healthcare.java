@@ -99,7 +99,7 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         viewBinding.manAi.setOnClickListener(v -> go(WebView.class, "https://robot-lib-achieve.zuoshouyisheng.com/?app_id=586232fc0bdf3f6784d211bb"));
 
         //人工问诊
-        viewBinding.linearRgwz.setOnClickListener(v -> go(WebView.class, "https://robot-lib-achieve.zuoshouyisheng.com/?app_id=5a7d6767bea7c06caf241b78"));
+        viewBinding.linearRgwz.setOnClickListener(v -> go(WebView.class, "https://robot-lib-achieve.zuoshouyisheng.com/?app_id=586232fc0bdf3f6784d211bb"));
 
         viewBinding.useTipBox.setOnClickListener(v -> go(UseMedTip.class));
         viewBinding.healthRecords.setOnClickListener(view -> go(HealthRecords.class));
