@@ -42,7 +42,7 @@ data class RowXX(
     var isGiveupDrinking: Any,
     var isYearDrinking: Any,
     var livingSituation: String,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var medicationExpenses: String,
     var mother: String,

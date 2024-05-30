@@ -1,6 +1,9 @@
 package com.example.medicalservice.activity.shopChildView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,19 +18,26 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.example.medicalservice.MyApplication;
 import com.example.medicalservice.R;
 import com.example.medicalservice.activity.healthcareChildActivity.AiDevice;
 import com.example.medicalservice.baseFile.BaseActivity;
 import com.example.medicalservice.bean.AddressListBean;
+import com.example.medicalservice.bean.ProviceBean;
 import com.example.medicalservice.databinding.ActivityAddressMangerBinding;
 import com.example.medicalservice.recycleAdapter.CarMenuAdapter;
 import com.example.medicalservice.tools.API;
 import com.example.medicalservice.tools.GetOrderForShop;
 import com.example.medicalservice.tools.OkHttpUtil;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +53,11 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
     private boolean mangerStatus = false;
 
     private String controlType;
+
+    //省、市、区-列表
+    private List<String> options1Items = new ArrayList<>();
+    private List<List<String>> options2Items = new ArrayList<>();
+    private List<List<List<String>>> options3Items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +88,8 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
 
         });
 
+        //填充数据
+        initJsonData();
         getAddressList();
     }
 
@@ -123,8 +140,8 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
         View view = LayoutInflater.from(activity).inflate(R.layout.address_add_dialog, null);
 
         builder.setView(view);
-        TextView left_btn, right_btn;
-        EditText name, phone, area, address;
+        TextView left_btn, right_btn, area;
+        EditText name, phone, address;
         SwitchCompat isDefault;
         left_btn = view.findViewById(R.id.yes);
         right_btn = view.findViewById(R.id.no);
@@ -149,6 +166,13 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
 
         left_btn.setOnClickListener(v1 -> {
             alertDialog.dismiss();
+        });
+
+        area.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                areaPicker(area);
+            }
         });
 
         right_btn.setOnClickListener(v1 -> {
@@ -202,8 +226,51 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
                 }
             });
         });
+    }
 
+    /**
+     *  PickerView用法
+     */
+    private void areaPicker(TextView address) {
+        OptionsPickerView pvOptions = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                String str = options1Items.get(options1) +
+                        options2Items.get(options1).get(options2) +
+                        options3Items.get(options1).get(options2).get(options3);
+                address.setText(str);
+//                ToastUtils.show(str);
+            }
+        })
+                .setTitleText("城市选择")
+                .setDividerColor(Color.BLACK)
+                .setTextColorCenter(Color.BLACK)
+                .setContentTextSize(20)
+                .setOutSideCancelable(false)
+                .isDialog(true)
+                .build();
+        pvOptions.setPicker(options1Items, options2Items, options3Items);
+        pvOptions.show();
+    }
 
+    /**
+     *  解析数据
+     */
+    private void initJsonData() {
+        String str = new GetJsonDataUtil().getJson(this, "province.json");
+        List<ProviceBean> list = new Gson().fromJson(str, new TypeToken<List<ProviceBean>>() {
+        }.getType());
+        for (ProviceBean bean : list) {
+            options1Items.add(bean.getName());
+            List<String> city = new ArrayList<>();
+            List<List<String>> area = new ArrayList<>();
+            for (ProviceBean.CityBean cityBean : bean.getCity()) {
+                city.add(cityBean.getName());
+                area.add(cityBean.getArea());
+            }
+            options2Items.add(city);
+            options3Items.add(area);
+        }
     }
 
     class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
@@ -285,5 +352,29 @@ public class AddressManger extends BaseActivity<ActivityAddressMangerBinding> {
         }
     }
 
+    /**
+     * @data on 2020/11/2 3:32 PM
+     * @auther armStrong
+     * @describe 读取Assent资源文件中的并将.json文件转换成String类型
+     */
+    public class GetJsonDataUtil {
+        public String getJson(Context context, String fileName) {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            try {
+                AssetManager assetManager = context.getAssets();
+                BufferedReader bf = new BufferedReader(new InputStreamReader(
+                        assetManager.open(fileName)));
+                String line;
+                while ((line = bf.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return stringBuilder.toString();
+        }
+
+    }
 
 }

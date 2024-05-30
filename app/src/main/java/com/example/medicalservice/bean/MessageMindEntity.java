@@ -77,7 +77,7 @@ public class MessageMindEntity {
         private String noticeCreatorName;
         private Object noticeTypeId;
         private Object noticeTypeName;
-        private int markerId;
+        private Long markerId;
         private Object markerName;
         private Object readsNumber;
 
@@ -273,11 +273,11 @@ public class MessageMindEntity {
             this.noticeTypeName = noticeTypeName;
         }
 
-        public int getMarkerId() {
+        public Long getMarkerId() {
             return markerId;
         }
 
-        public void setMarkerId(int markerId) {
+        public void setMarkerId(Long markerId) {
             this.markerId = markerId;
         }
 

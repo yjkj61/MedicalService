@@ -103,7 +103,7 @@ public class FoodListNewBean {
         @SerializedName("userType")
         private String userType;
         @SerializedName("markerId")
-        private Integer markerId;
+        private Long markerId;
         @SerializedName("markerName")
         private Object markerName;
         @SerializedName("rFoodCanteenId")
@@ -345,11 +345,11 @@ public class FoodListNewBean {
             this.userType = userType;
         }
 
-        public Integer getMarkerId() {
+        public Long getMarkerId() {
             return markerId;
         }
 
-        public void setMarkerId(Integer markerId) {
+        public void setMarkerId(Long markerId) {
             this.markerId = markerId;
         }
 

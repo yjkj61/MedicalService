@@ -96,6 +96,7 @@ public class BloodOxygen extends BaseActivity<ActivityBloodPressureBinding> {
 
     private UserBean userBean;
 
+    private String device_name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +123,7 @@ public class BloodOxygen extends BaseActivity<ActivityBloodPressureBinding> {
 
         viewBinding.start.setOnClickListener(v -> {
             start = !start;
+            showToast("开始测量" + device_name);
             viewBinding.start.setText(start ? getString(R.string.measuring) : getString(R.string.start_measure));
 
         });
@@ -492,6 +494,7 @@ public class BloodOxygen extends BaseActivity<ActivityBloodPressureBinding> {
         BleManager.getInstance().scan(new BleScanCallback() {
             @Override
             public void onScanStarted(boolean success) {
+                showToast("开始扫描");
                 viewBinding.connect.setText(R.string.scanning);
             }
 
@@ -580,6 +583,7 @@ public class BloodOxygen extends BaseActivity<ActivityBloodPressureBinding> {
                 // 连接成功，BleDevice即为所连接的BLE设备
                 System.out.println("devices is : " + bleDevice.getName() + " , mac is : " + bleDevice.getMac()
                         + " , scan data is : " + bleDevice.getScanRecord() + " , rssi is : " + bleDevice.getRssi());
+                device_name = bleDevice.getName();
                 if (bleDevice.getName().contains("BP")) {
                     SpUtils.putString(activity, "BP_lanya_devices", bleDevice.getName());
                 } else if (bleDevice.getName().contains("AOJ-2")) {

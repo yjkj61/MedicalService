@@ -112,12 +112,14 @@
                         android:layout_width="@dimen/dim_30"
                         android:layout_height="@dimen/dim_30"
                         android:layout_marginStart="20dp"
-                        android:src="@mipmap/icon_property_five_blessings_service" />
+                        android:src="@mipmap/icon_property_five_blessings_service"
+                        android:visibility="gone"/>
 
                     <RelativeLayout
                         android:layout_width="@dimen/dim_90"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="10dp"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"

@@ -8,7 +8,7 @@ public class MarkBean {
     private String updateBy;
     private String updateTime;
     private String remark;
-    private int markerId;
+    private Long markerId;
     private int markerUserId;
     private String markerName;
     private String ownerCenterName;
@@ -66,11 +66,11 @@ public class MarkBean {
         this.remark = remark;
     }
 
-    public int getMarkerId() {
+    public Long getMarkerId() {
         return markerId;
     }
 
-    public void setMarkerId(int markerId) {
+    public void setMarkerId(Long markerId) {
         this.markerId = markerId;
     }
 

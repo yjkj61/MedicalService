@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -83,7 +85,7 @@ public class ChatView extends BaseActivity<ActivityChatViewBinding> {
             viewBinding.voicePlay.cancelAnimation();
             Log.d("TAG", "onResult: " + printResult(recognizerResult));
 
-            if(! printResult(recognizerResult).isEmpty()){
+            if (!printResult(recognizerResult).isEmpty()) {
                 viewBinding.message.setText(printResult(recognizerResult));
                 seedMessage(printResult(recognizerResult));
             }
@@ -133,7 +135,7 @@ public class ChatView extends BaseActivity<ActivityChatViewBinding> {
             resultBuffer.append(mIatResults.get(key));
         }
 
-        if(resultBuffer.toString().isEmpty()) return "";
+        if (resultBuffer.toString().isEmpty()) return "";
         isChinesePunctuation(resultBuffer.toString().charAt(0));
 
         if (isChinesePunctuation(resultBuffer.toString().charAt(0))) return "";
@@ -169,10 +171,10 @@ public class ChatView extends BaseActivity<ActivityChatViewBinding> {
 
         viewBinding.voice.setOnClickListener(v -> {
 
-            if(viewBinding.talkBox.getVisibility() == View.GONE){
+            if (viewBinding.talkBox.getVisibility() == View.GONE) {
                 viewBinding.talkBox.setVisibility(View.VISIBLE);
 
-            }else {
+            } else {
                 viewBinding.talkBox.setVisibility(View.GONE);
 
             }
@@ -214,6 +216,7 @@ public class ChatView extends BaseActivity<ActivityChatViewBinding> {
                 return;
             }
             seedMessage(viewBinding.message.getText().toString());
+            hideSoftWareInput();
         });
     }
 
@@ -368,4 +371,11 @@ public class ChatView extends BaseActivity<ActivityChatViewBinding> {
             }
         }
     }
+
+    //收起软键盘
+    public void hideSoftWareInput() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(viewBinding.seed.getWindowToken(), 0);
+    }
+
 }
