@@ -187,7 +187,7 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
         BleManager.getInstance().scan(new BleScanCallback() {
             @Override
             public void onScanStarted(boolean success) {
-                showToast("开始扫描");
+//                showToast("开始测量" + device_name);
                 System.out.println("开始测量" + device_name);
                 viewBinding.connect.setText("正在扫描");
             }
@@ -327,6 +327,7 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
 
                                 viewBinding.start.setOnClickListener(view -> {
                                     start = !start;
+                                    showToast("开始测量" + device_name);
                                     viewBinding.start.setText(start ? "正在测量" : "开始测量");
                                     BleManager.getInstance().write(
                                             bleDevice,
