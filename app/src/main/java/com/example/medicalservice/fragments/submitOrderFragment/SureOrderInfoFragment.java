@@ -101,8 +101,9 @@ public class SureOrderInfoFragment extends BaseFragment<FragmentSureOrderInfoBin
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());
                         if (jsonObject.getInt("code") == 200) {
+                            showToast("下单成功");
                             //SubmitOrderView.mActivity.finish();
-                            activity.runOnUiThread(() -> SubmitOrderView.mActivity.tabSwitch(2));
+//                            activity.runOnUiThread(() -> SubmitOrderView.mActivity.tabSwitch(2));
                         } else {
                             activity.runOnUiThread(() -> showToast("请求失败，请联系管理员"));
                         }

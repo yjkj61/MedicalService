@@ -295,7 +295,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
 
                     if (loginBean != null && loginBean.getCode() == 200) {
-                        updateToken(loginBean.getData().getAccess_token(), userBean.getNickName(), userBean.getAvatar(), String.valueOf(userBean.getUserId()), userBean.getPhonenumber());
+                        if (loginBean.getData() != null){
+                            updateToken(loginBean.getData().getAccess_token(), userBean.getNickName(), userBean.getAvatar(), String.valueOf(userBean.getUserId()), userBean.getPhonenumber());
+                        }
                     } else {
                         runOnUiThread(() -> showToast("认证刷新失败"));
                     }
