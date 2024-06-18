@@ -91,6 +91,6 @@ data class UserInfoData(
     var remark: Any?,
     var updateBy: Any?,
     var updateTime: Any?,
-    var userId: Int,
+    var userId: Long,
     var userType: String
 )
