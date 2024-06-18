@@ -394,14 +394,16 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void bindView(ViewHolder holder, FoodListNewBean.DataDTO obj) {
-                    TextView price, number;
+                    TextView price, number, tv_name;
                     ImageView image, remove, add;
                     price = holder.getView(R.id.price);
                     number = holder.getView(R.id.number);
                     image = holder.getView(R.id.image);
                     remove = holder.getView(R.id.remove);
                     add = holder.getView(R.id.add);
+                    tv_name = holder.getView(R.id.tv_name);
 
+                    tv_name.setText(obj.getRFoodName());
                     GlideUtils.load(holder.getItemView().getContext(), obj.getRFoodPic(), image, R.drawable.good_test, 20);
                     price.setText(obj.getRFoodPrice() + "");
                     number.setText(obj.getNumber() + "");
