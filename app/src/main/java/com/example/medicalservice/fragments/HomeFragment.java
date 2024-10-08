@@ -19,6 +19,8 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -51,7 +53,9 @@ import com.example.medicalservice.bean.Data;
 import com.example.medicalservice.bean.HomeAdBannerEntity;
 import com.example.medicalservice.bean.HomeBannerEntity;
 import com.example.medicalservice.bean.HomeGridBean;
+import com.example.medicalservice.bean.NewWeatherBean;
 import com.example.medicalservice.bean.Row;
+import com.example.medicalservice.bean.SleepInfoBean;
 import com.example.medicalservice.bean.UpdateAppEntity;
 import com.example.medicalservice.databinding.FragmentHomeBinding;
 import com.example.medicalservice.recycleAdapter.BannerAdapter;
@@ -233,6 +237,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         super.onResume();
 
         setUserInfo();
+        getWeatherNew();
     }
 
     @Override
@@ -249,7 +254,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         //viewBinding.week.setText(TimeTool.StringData());
 
         getTime();
-        getLocation();
+//        getLocation();
         initTools();
         initPlayTv();
         initApps();
@@ -319,6 +324,34 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
                         });
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+    }
+
+    //获取定位和天气
+    private void getWeatherNew() {
+        OkHttpUtil.getInstance().doGet(API.weather_new, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.body() != null) {
+                    NewWeatherBean bean = new Gson().fromJson(response.body().string(), NewWeatherBean.class);
+                    if (bean.getCode() == 200){
+                        if (bean.getData().getLives() != null){
+                            if (bean.getData().getLives().size() != 0){
+                                activity.runOnUiThread(() -> {
+                                    viewBinding.wendu.setText(bean.getData().getLives().get(0).getTemperature() + "℃");
+                                    viewBinding.weatherInfo.setText("城市：" + bean.getData().getLives().get(0).getCity() + "\r\n" + "湿度：" + bean.getData().getLives().get(0).getHumidity()
+                                            + "\r\n" + "风向：" + bean.getData().getLives().get(0).getWinddirection() + "风");
+                                });
+                            }
+                        }
                     }
                 }
             }
@@ -677,19 +710,19 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
 
         List<HomeGridBean> homeGridBeans = new ArrayList<>();
 
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_iqiyi));
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_iqiyi));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_cctv));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_aqy));
 
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_radio));
-        homeGridBeans.add(new HomeGridBean("", R.drawable.leisure_entertainment_image_tiktok));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_qqmusic));
+        homeGridBeans.add(new HomeGridBean("", R.drawable.icon_home_douyin));
 
         DisplayMetrics outMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(outMetrics);
         float widthPixel = (float) (outMetrics.widthPixels * 0.8);
 
-        float width = (float) widthPixel / 2 - 400;
+        float width = (float) widthPixel / 2 - 340;
 
-        float height = (float) (width / 1.63);
+        float height = (float) (width * 0.48);
 
         Log.d("TAG", "initPlayTv: " + width + "-----" + height);
 
@@ -699,7 +732,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
             public void bindView(ViewHolder holder, HomeGridBean obj) {
 
                 ImageView tools_icon = holder.getView(R.id.image);
-                tools_icon.setLayoutParams(new LinearLayout.LayoutParams((int) width, (int) height));
+                tools_icon.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) height));
 
                 tools_icon.setImageResource(obj.getDrawable());
 
@@ -707,6 +740,29 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
             }
         };
         viewBinding.player.setAdapter(msAdapter);
+
+        viewBinding.player.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Uri uri = null;
+                switch (position){
+                    case 0:
+                        uri = Uri.parse("https://tv.cctv.com/live/");https://www.iqiyi.com/
+                        break;
+                    case 1:
+                        uri = Uri.parse("https://www.iqiyi.com/");
+                        break;
+                    case 2:
+                        uri = Uri.parse("https://y.qq.com/");
+                        break;
+                    case 3:
+                        uri = Uri.parse("https://www.douyin.com/");
+                        break;
+                }
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initApps() {

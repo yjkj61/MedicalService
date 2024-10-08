@@ -19,7 +19,7 @@ data class DataXX(
     var familyMemberRelation: String,
     var familyMemberSex: String,
     var familyMemberWorkplace: String,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var ownerAddress: String,
     var ownerId: Int,

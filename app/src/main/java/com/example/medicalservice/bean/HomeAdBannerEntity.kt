@@ -28,7 +28,7 @@ data class ADRow(
     var hyperlink: Any,
     var id: Int,
     var jumpType: Any,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var progress: Int,
     var putInWeight: Int,

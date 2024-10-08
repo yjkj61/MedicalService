@@ -106,13 +106,14 @@
                 android:textColor="#5E5E5E"
                 android:textSize="@dimen/dim_sp_14"
                 android:text="@string/still_have_no_account"/>
+
             <TextView
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/register"
                 android:textColor="#A972B8"
-                android:textSize="@dimen/dim_sp_14"
-                android:text="@string/register"/>
+                android:textSize="@dimen/dim_sp_14" />
 
         </LinearLayout>
 

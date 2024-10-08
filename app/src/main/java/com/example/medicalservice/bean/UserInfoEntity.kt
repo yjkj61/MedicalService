@@ -9,7 +9,7 @@ data class UserInfoEntity(
 data class UserInfoData(
     var createBy: Any?,
     var createTime: String?,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any?,
     var ownerAccountName: Any?,
     var ownerAddress: String?,
@@ -91,6 +91,6 @@ data class UserInfoData(
     var remark: Any?,
     var updateBy: Any?,
     var updateTime: Any?,
-    var userId: Int,
+    var userId: Long,
     var userType: String
 )

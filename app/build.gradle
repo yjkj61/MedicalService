@@ -20,13 +20,13 @@ android {
         }
     }
     namespace 'com.example.medicalservice'
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         multiDexEnabled true
         applicationId "com.example.medicalservice"
-        minSdk 28
-        targetSdk 31
+        minSdk 24
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 

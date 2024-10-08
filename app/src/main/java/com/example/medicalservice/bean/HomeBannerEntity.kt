@@ -22,7 +22,7 @@ data class Row(
     var endTime: String,
     var id: Int,
     var indexOne: String,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var ownerId: Any,
     var publishTime: String,

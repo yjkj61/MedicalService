@@ -60,5 +60,6 @@ public class PayFragment extends BaseFragment<FragmentPayBinding> {
             checkBox.setOnCheckedChangeListener(onCheckedChangeListener);
         }
         viewBinding.lastStep.setOnClickListener(v -> SubmitOrderView.mActivity.tabSwitch(1));
+//        viewBinding.submit.setOnClickListener(v -> SubmitOrderView.mActivity.tabSwitch(4));
     }
 }

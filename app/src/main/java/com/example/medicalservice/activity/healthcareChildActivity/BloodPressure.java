@@ -75,6 +75,8 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
 
     private BloodOxygenHistoryAdapter bloodOxygenHistoryAdapter;
 
+    private String device_name = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,7 +187,8 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
         BleManager.getInstance().scan(new BleScanCallback() {
             @Override
             public void onScanStarted(boolean success) {
-                System.out.println("开始扫描");
+//                showToast("开始测量" + device_name);
+                System.out.println("开始测量" + device_name);
                 viewBinding.connect.setText("正在扫描");
             }
 
@@ -273,6 +276,7 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
                 // 连接成功，BleDevice即为所连接的BLE设备
                 System.out.println("devices is : " + bleDevice.getName() + " , mac is : " + bleDevice.getMac()
                         + " , scan data is : " + bleDevice.getScanRecord() + " , rssi is : " + bleDevice.getRssi());
+                device_name = bleDevice.getName();
                 if (bleDevice.getName().contains("BP")) {
                     SpUtils.putString(activity, "BP_lanya_devices", bleDevice.getName());
                 } else if (bleDevice.getName().contains("AOJ-2")) {
@@ -323,6 +327,7 @@ public class BloodPressure extends BaseActivity<ActivityBloodOxygenBinding> {
 
                                 viewBinding.start.setOnClickListener(view -> {
                                     start = !start;
+                                    showToast("开始测量" + device_name);
                                     viewBinding.start.setText(start ? "正在测量" : "开始测量");
                                     BleManager.getInstance().write(
                                             bleDevice,

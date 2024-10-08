@@ -1,9 +1,11 @@
 package com.example.medicalservice.activity.shopChildView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,13 +15,25 @@ import com.example.medicalservice.MsAdapter;
 import com.example.medicalservice.MyApplication;
 import com.example.medicalservice.R;
 import com.example.medicalservice.baseFile.BaseActivity;
+import com.example.medicalservice.bean.LevelInfoBean;
 import com.example.medicalservice.dataBaseBean.UserBean;
 import com.example.medicalservice.databinding.ActivityShopMyCenterBinding;
+import com.example.medicalservice.tools.API;
 import com.example.medicalservice.tools.GlideUtils;
+import com.example.medicalservice.tools.OkHttpUtil;
 import com.example.medicalservice.tools.ToastUtil;
+import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class ShopMyCenter extends BaseActivity<ActivityShopMyCenterBinding> {
 
@@ -49,6 +63,7 @@ public class ShopMyCenter extends BaseActivity<ActivityShopMyCenterBinding> {
 
         initOrderControl();
         initGrid();
+        getLevelList();
     }
 
     private void initOrderControl() {
@@ -143,4 +158,73 @@ public class ShopMyCenter extends BaseActivity<ActivityShopMyCenterBinding> {
 
         viewBinding.gridView.setAdapter(msAdapter);
     }
+
+    public void getUserJiFen(){
+        OkHttpUtil.getInstance().doGet(API.UserJiFen, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                try {
+                    JSONObject jsonObject = new JSONObject(response.body().string());
+                    String code = jsonObject.getString("code");
+                    String msg = jsonObject.getString("msg");
+                    if (!"200".equals(code)){
+                        showToast(msg);
+                        return;
+                    }
+                    int jifen = jsonObject.getInt("data");
+                    for (int i = 0; i < list_level.size();i++){
+                        if (jifen >= list_level.get(i).getGrowthValueBegin() && list_level.get(i).getGrowthValueEnd() >= jifen){
+                            int finalI = i;
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    viewBinding.level.setText("LV" + list_level.get(finalI).getLevel());
+                                }
+                            });
+                        }
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            viewBinding.tvJifen.setText("(" + jifen + "成长值" + ")");
+                        }
+                    });
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
+    List<LevelInfoBean.DataDTO> list_level = new ArrayList<>();
+
+    public void getLevelList(){
+        OkHttpUtil.getInstance().doGet(API.LevelList, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                LevelInfoBean bean = new Gson().fromJson(response.body().string(), LevelInfoBean.class);
+                if (bean.getCode() == 200){
+                    list_level.clear();
+                    list_level.addAll(bean.getData());
+                    getUserJiFen();
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            getUserJiFen();
+//                        }
+//                    });
+                }
+            }
+        });
+    }
+
 }

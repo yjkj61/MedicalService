@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.example.medicalservice.activity.cateringServicesActivity.Order.PayOrd
 import com.example.medicalservice.baseFile.BaseActivity;
 import com.example.medicalservice.bean.CarFoodListBean;
 import com.example.medicalservice.bean.FoodListBean;
+import com.example.medicalservice.bean.FoodListNewBean;
 import com.example.medicalservice.databinding.ActivityEatCar1Binding;
 import com.example.medicalservice.fragments.CateringServices;
 import com.example.medicalservice.recycleAdapter.CarMenuAdapter;
@@ -53,6 +55,8 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
 
     public static Activity mActivity;
 
+    private String type = "0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +68,7 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
         super.initView();
         mActivity = this;
 
-
+        type = getIntent().getStringExtra("msg");
         viewBinding.seeAll.setOnClickListener(v -> go(OrderListActivity.class));
 
         adapter = new CarMenuAdapter(foodList);
@@ -125,11 +129,12 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
         viewBinding.canteenName.setText(MyApplication.getInstance().getrFoodCanteenName());
         updateMoney(handler);
 
-        try {
-            getFoodList();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            getFoodList();
+            getFoodListNew();
+//        } catch (JSONException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
@@ -236,6 +241,112 @@ public class EatCar1 extends BaseActivity<ActivityEatCar1Binding> {
                                             carFoodListBean.setNumber(1);
                                             carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
                                             carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+
+                                            foodList.add(carFoodListBean);
+                                        }
+
+
+                                    }
+
+                                    adapter.notifyDataSetChanged();
+
+                                    double totalMoney = 0;
+                                    for (CarFoodListBean bean : foodList) {
+                                        totalMoney = plus(String.valueOf(totalMoney), String.valueOf(bean.getPrice()));
+                                    }
+                                    viewBinding.totalMoney.setText(String.format("%.2f",totalMoney) + "");
+                                });
+
+
+                            }
+                        };
+
+                        viewBinding.menuGrid.setAdapter(msAdapter);
+
+                    });
+                } else {
+                    runOnUiThread(() -> showToast("请求失败,请联系管理员"));
+                }
+            }
+        });
+    }
+
+    public void getFoodListNew(){
+        OkHttpUtil.getInstance().doGet(API.newFoodList() + "rFoodCanteenId=" + MyApplication.getInstance().getrFoodCanteenId()
+                + "&rFoodCommunityOrPrivate=" + type, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                DecimalFormat df = new DecimalFormat("#.00");
+                String json = Objects.requireNonNull(response.body()).string();
+
+//                Log.i("getFoodListNew", json);
+
+                FoodListNewBean foodListBean = new Gson().fromJson(json, FoodListNewBean.class);
+
+                if (foodListBean.getCode() == 200) {
+                    runOnUiThread(() -> {
+                        MsAdapter msAdapter = new MsAdapter<FoodListNewBean.DataDTO>(foodListBean.getData(), R.layout.car_menu_item) {
+
+
+                            @SuppressLint({"SetTextI18n", "NotifyDataSetChanged", "DefaultLocale"})
+                            @Override
+                            public void bindView(ViewHolder holder, FoodListNewBean.DataDTO obj) {
+                                ImageView imageView = holder.getView(R.id.image);
+                                TextView foodName = holder.getView(R.id.foodName);
+                                TextView rFoodPrice = holder.getView(R.id.rFoodPrice);
+
+                                ImageView add = holder.getView(R.id.add);
+
+                                GlideUtils.load(activity, obj.getRFoodPic(), imageView, R.drawable.good_test,20);
+                                foodName.setText(obj.getRFoodName());
+                                double foodPrice = obj.getRFoodPrice();
+                                rFoodPrice.setText(String.format("%.2f",foodPrice));
+
+                                add.setOnClickListener(v -> {
+
+                                    if(obj.getRFoodIsorder()==1){
+                                        showToast("售罄");
+                                        return;
+                                    }
+
+
+                                    CarFoodListBean carFoodListBean = new CarFoodListBean();
+
+                                    if (foodList.size() == 0) {
+                                        carFoodListBean.setId(obj.getRFoodId());
+                                        carFoodListBean.setImageUrl(obj.getRFoodPic());
+                                        carFoodListBean.setName(obj.getRFoodName());
+                                        carFoodListBean.setSinglePrice(obj.getRFoodPrice());
+                                        carFoodListBean.setPrice(obj.getRFoodPrice());
+                                        carFoodListBean.setPrice(obj.getRFoodPrice());
+                                        carFoodListBean.setNumber(1);
+                                        carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                                        carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
+                                        foodList.add(carFoodListBean);
+                                    } else {
+
+                                        if (haveIt(foodList, obj.getRFoodId())) {
+                                            for (int i = 0; i < foodList.size(); i++) {
+                                                CarFoodListBean carFood = foodList.get(i);
+                                                if (carFood.getId() == obj.getRFoodId()) {
+                                                    carFood.setNumber(carFood.getNumber() + 1);
+                                                    carFood.setPrice(carFood.getPrice() + carFood.getSinglePrice());
+                                                }
+                                            }
+                                        } else {
+                                            carFoodListBean.setId(obj.getRFoodId());
+                                            carFoodListBean.setImageUrl(obj.getRFoodPic());
+                                            carFoodListBean.setName(obj.getRFoodName());
+                                            carFoodListBean.setSinglePrice(obj.getRFoodPrice());
+                                            carFoodListBean.setPrice(obj.getRFoodPrice());
+                                            carFoodListBean.setNumber(1);
+                                            carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                                            carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
 
                                             foodList.add(carFoodListBean);
                                         }

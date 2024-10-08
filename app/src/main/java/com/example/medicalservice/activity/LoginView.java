@@ -121,7 +121,6 @@ public class LoginView extends BaseActivity<ActivityLoginViewBinding> {
                 SpUtils.putString(activity, "token", loginBean.getData().getAccess_token());
                 MyApplication.getInstance().setToken(loginBean.getData().getAccess_token());
 
-
                 OkHttpUtil.getInstance().doGet(API.userInfo(), new okhttp3.Callback() {
                     @Override
                     public void onFailure(@NonNull Call call, @NonNull IOException e) {

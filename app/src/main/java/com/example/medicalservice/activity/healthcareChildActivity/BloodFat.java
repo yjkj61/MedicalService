@@ -93,6 +93,8 @@ public class BloodFat extends BaseActivity<ActivityBloodFatBinding> {
 
     private String type = "totalCholesterol";
 
+    private String device_name = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,6 +119,7 @@ public class BloodFat extends BaseActivity<ActivityBloodFatBinding> {
 
         viewBinding.start.setOnClickListener(v -> {
             start = !start;
+            showToast("开始测量" + device_name);
             viewBinding.start.setText(start ? "正在测量" : "开始测量");
 
         });
@@ -441,6 +444,7 @@ public class BloodFat extends BaseActivity<ActivityBloodFatBinding> {
                 // 连接成功，BleDevice即为所连接的BLE设备
                 System.out.println("devices is : " + bleDevice.getName() + " , mac is : " + bleDevice.getMac()
                         + " , scan data is : " + bleDevice.getScanRecord() + " , rssi is : " + bleDevice.getRssi());
+                device_name = bleDevice.getName();
                 if (bleDevice.getName().contains("BP")) {
                     SpUtils.putString(activity, "BP_lanya_devices", bleDevice.getName());
                 } else if (bleDevice.getName().contains("AOJ-2")) {

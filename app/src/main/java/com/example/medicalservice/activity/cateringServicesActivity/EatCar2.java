@@ -29,6 +29,7 @@ import com.example.medicalservice.activity.cateringServicesActivity.Order.PayOrd
 import com.example.medicalservice.baseFile.BaseActivity;
 import com.example.medicalservice.bean.CarFoodListBean;
 import com.example.medicalservice.bean.FoodListBean;
+import com.example.medicalservice.bean.FoodListNewBean;
 import com.example.medicalservice.databinding.ActivityEatCar2Binding;
 import com.example.medicalservice.fragments.CateringServices;
 import com.example.medicalservice.recycleAdapter.AiBegHeaderAdapter;
@@ -72,6 +73,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
     AdapterEatList adapterEatList;
 
     public static Activity mActivity;
+
+    private String type = "0";
     Handler handler = new Handler(msg -> {
 
         String money = (String) msg.obj;
@@ -85,11 +88,13 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
         viewBinding.canteenName.setText(MyApplication.getInstance().getrFoodCanteenName());
         updateMoney(handler);
 
-        try {
-            getMenuList();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+        getNewMenuList();
+
+//        try {
+//            getMenuList();
+//        } catch (JSONException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
@@ -98,7 +103,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
 
         mActivity = this;
 
-        markId = getIntent().getStringExtra("msg");
+        type = getIntent().getStringExtra("msg");
+//        markId = getIntent().getStringExtra("msg");
         markName = getIntent().getStringExtra("msg2");
         viewBinding.seeAll.setOnClickListener(v -> go(OrderListActivity.class));
         viewBinding.catering.setOnClickListener(v -> {
@@ -179,28 +185,20 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
         viewBinding.money.setText(money + "");
     }
 
-    private void getMenuList() throws JSONException {
+    private void getNewMenuList(){
         types.clear();
-        menuSlideBeans.clear();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("rFoodCanteenId", MyApplication.getInstance().getrFoodCanteenId());
-        jsonObject.put("rFoodCommunityOrPrivate", "1");
-        OkHttpUtil.getInstance().doPost(API.foodList(), jsonObject.toString(), new Callback() {
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-            }
-
+        OkHttpUtil.getInstance().doGet(API.newFoodList() + "rFoodCanteenId=" + MyApplication.getInstance().getrFoodCanteenId()
+                + "&rFoodCommunityOrPrivate=" + type, new Callback() {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-
                 String json = Objects.requireNonNull(response.body()).string();
 
-                FoodListBean foodListBean = new Gson().fromJson(json, FoodListBean.class);
+                FoodListNewBean foodListBean = new Gson().fromJson(json, FoodListNewBean.class);
 
 
                 if (foodListBean.getCode() == 200) {
                     types.add("当季新品");
-                    for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+                    for (FoodListNewBean.DataDTO row : foodListBean.getData()) {
                         if (!types.contains(row.getRFoodType())) types.add(row.getRFoodType());
                     }
 
@@ -208,13 +206,13 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
                     for (String type : types) {
                         MenuSlideBean menuSlideBean = new MenuSlideBean();
                         menuSlideBean.setName(type);
-                        List<FoodListBean.RowsDTO> allFoods = new ArrayList<>();
+                        List<FoodListNewBean.DataDTO> allFoods = new ArrayList<>();
 
                         menuSlideBean.setSelect(type.equals("当季新品"));
 
-                        for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+                        for (FoodListNewBean.DataDTO row : foodListBean.getData()) {
 
-                            if (type.equals("当季新品") && row.getrFoodNewStatus() == 0) {
+                            if (type.equals("当季新品") && row.getRFoodNewStatus() == 0) {
                                 allFoods.add(row);
                             }
                             if (row.getRFoodType().contains(type)) {
@@ -235,9 +233,74 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
                 } else {
                     runOnUiThread(() -> showToast("请求失败,请联系管理员"));
                 }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
 
             }
         });
+    }
+
+    private void getMenuList() throws JSONException {
+//        types.clear();
+//        menuSlideBeans.clear();
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("rFoodCanteenId", MyApplication.getInstance().getrFoodCanteenId());
+//        jsonObject.put("rFoodCommunityOrPrivate", "1");
+//        OkHttpUtil.getInstance().doPost(API.foodList(), jsonObject.toString(), new Callback() {
+//            @Override
+//            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+//            }
+//
+//            @Override
+//            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+//
+//                String json = Objects.requireNonNull(response.body()).string();
+//
+//                FoodListBean foodListBean = new Gson().fromJson(json, FoodListBean.class);
+//
+//
+//                if (foodListBean.getCode() == 200) {
+//                    types.add("当季新品");
+//                    for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+//                        if (!types.contains(row.getRFoodType())) types.add(row.getRFoodType());
+//                    }
+//
+//
+//                    for (String type : types) {
+//                        MenuSlideBean menuSlideBean = new MenuSlideBean();
+//                        menuSlideBean.setName(type);
+//                        List<FoodListBean.RowsDTO> allFoods = new ArrayList<>();
+//
+//                        menuSlideBean.setSelect(type.equals("当季新品"));
+//
+//                        for (FoodListBean.RowsDTO row : foodListBean.getRows()) {
+//
+//                            if (type.equals("当季新品") && row.getrFoodNewStatus() == 0) {
+//                                allFoods.add(row);
+//                            }
+//                            if (row.getRFoodType().contains(type)) {
+//                                allFoods.add(row);
+//                            }
+//                        }
+//                        menuSlideBean.setFoodList(allFoods);
+//                        menuSlideBeans.add(menuSlideBean);
+//
+//                    }
+//                    if (menuSlideBeans.size() == 0) return;
+//
+//                    runOnUiThread(() -> {
+//                        adapterEatList.notifyDataSetChanged();
+//                        adapterMenu.notifyDataSetChanged();
+//                    });
+//
+//                } else {
+//                    runOnUiThread(() -> showToast("请求失败,请联系管理员"));
+//                }
+//
+//            }
+//        });
     }
 
 
@@ -327,18 +390,20 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            msAdapter = new MsAdapter<FoodListBean.RowsDTO>(typeList.get(position).getFoodList(), R.layout.car2_menu_item) {
+            msAdapter = new MsAdapter<FoodListNewBean.DataDTO>(typeList.get(position).getFoodList(), R.layout.car2_menu_item) {
                 @SuppressLint("SetTextI18n")
                 @Override
-                public void bindView(ViewHolder holder, FoodListBean.RowsDTO obj) {
-                    TextView price, number;
+                public void bindView(ViewHolder holder, FoodListNewBean.DataDTO obj) {
+                    TextView price, number, tv_name;
                     ImageView image, remove, add;
                     price = holder.getView(R.id.price);
                     number = holder.getView(R.id.number);
                     image = holder.getView(R.id.image);
                     remove = holder.getView(R.id.remove);
                     add = holder.getView(R.id.add);
+                    tv_name = holder.getView(R.id.tv_name);
 
+                    tv_name.setText(obj.getRFoodName());
                     GlideUtils.load(holder.getItemView().getContext(), obj.getRFoodPic(), image, R.drawable.good_test, 20);
                     price.setText(obj.getRFoodPrice() + "");
                     number.setText(obj.getNumber() + "");
@@ -388,8 +453,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
                             carFoodListBean.setSinglePrice(obj.getRFoodPrice());
                             carFoodListBean.setPrice(obj.getRFoodPrice());
                             carFoodListBean.setNumber(1);
-                            carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
-                            carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+                            carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                            carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
                             foodList.add(carFoodListBean);
                         } else {
 
@@ -408,8 +473,8 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
                                 carFoodListBean.setSinglePrice(obj.getRFoodPrice());
                                 carFoodListBean.setPrice(obj.getRFoodPrice());
                                 carFoodListBean.setNumber(1);
-                                carFoodListBean.setrFoodCanteenId(obj.getrFoodCanteenId());
-                                carFoodListBean.setrFoodPackingCharge(obj.getrFoodPackingCharge());
+                                carFoodListBean.setrFoodCanteenId(obj.getRFoodCanteenId() + "");
+                                carFoodListBean.setrFoodPackingCharge(obj.getRFoodPackingCharge());
                                 foodList.add(carFoodListBean);
                             }
 
@@ -461,7 +526,7 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
         String name;
         boolean select;
 
-        private List<FoodListBean.RowsDTO> foodList;
+        private List<FoodListNewBean.DataDTO> foodList;
 
         public String getName() {
             return name;
@@ -479,11 +544,11 @@ public class EatCar2 extends BaseActivity<ActivityEatCar2Binding> {
             this.select = select;
         }
 
-        public List<FoodListBean.RowsDTO> getFoodList() {
+        public List<FoodListNewBean.DataDTO> getFoodList() {
             return foodList;
         }
 
-        public void setFoodList(List<FoodListBean.RowsDTO> foodList) {
+        public void setFoodList(List<FoodListNewBean.DataDTO> foodList) {
             this.foodList = foodList;
         }
     }

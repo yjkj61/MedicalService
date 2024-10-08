@@ -1,6 +1,7 @@
 package com.example.medicalservice.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,11 @@ import com.example.medicalservice.activity.healthcareChildActivity.useMadChildVi
 import com.example.medicalservice.activity.healthcareChildActivity.AiDevice;
 import com.example.medicalservice.activity.healthcareChildActivity.HealthRecords;
 import com.example.medicalservice.baseFile.BaseFragment;
+import com.example.medicalservice.bean.HealthInfoBean;
 import com.example.medicalservice.bean.HomeCommentBean;
 import com.example.medicalservice.bean.LastPhysicalExamination;
+import com.example.medicalservice.bean.NewWeatherBean;
+import com.example.medicalservice.bean.SleepInfoBean;
 import com.example.medicalservice.bean.UseMedTipListBean;
 import com.example.medicalservice.bean.UserHealthDataBean;
 import com.example.medicalservice.dataBaseBean.UserBean;
@@ -94,6 +98,9 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
 
         viewBinding.manAi.setOnClickListener(v -> go(WebView.class, "https://robot-lib-achieve.zuoshouyisheng.com/?app_id=586232fc0bdf3f6784d211bb"));
 
+        //人工问诊
+        viewBinding.linearRgwz.setOnClickListener(v -> go(WebView.class, "https://robot-lib-achieve.zuoshouyisheng.com/?app_id=586232fc0bdf3f6784d211bb"));
+
         viewBinding.useTipBox.setOnClickListener(v -> go(UseMedTip.class));
         viewBinding.healthRecords.setOnClickListener(view -> go(HealthRecords.class));
 
@@ -108,6 +115,8 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         viewBinding.uricAcid.setOnClickListener(v -> go(BloodOxygen.class, "尿酸"));
         viewBinding.cholesterol.setOnClickListener(v -> go(BloodOxygen.class, "胆固醇"));
         viewBinding.bloodFat.setOnClickListener(v -> go(BloodFat.class));
+
+        getSleepInfo();
     }
 
     @Override
@@ -117,6 +126,7 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         initTip();
         initDevice();
         initHeathData();
+        getHealthInfo();
     }
 
     private void setUserInfo() {
@@ -129,18 +139,18 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         //viewBinding.userHeader
     }
 
+    List<UserHealthDataBean> userHealthDataBeans = new ArrayList<>();
 
     @Override
     public void initData() {
         super.initData();
 
-        List<UserHealthDataBean> userHealthDataBeans = new ArrayList<>();
         userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.to_day_sleep), 0.05, "0"));
 
         userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.week_sleep), 0.05, "0"));
-        userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.to_day_walk), 0.05, "0"));
-
-        userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.week_walk), 0.05, "0"));
+//        userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.to_day_walk), 0.05, "0"));
+//
+//        userHealthDataBeans.add(new UserHealthDataBean(getResources().getString(R.string.week_walk), 0.05, "0"));
 
         userHealthDataAdapter = new UserHealthDataAdapter(userHealthDataBeans, activity);
         viewBinding.userHealthDataList.setAdapter(userHealthDataAdapter);
@@ -148,11 +158,40 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
 
     }
 
+    //获取定位和天气
+    private void getSleepInfo() {
+        OkHttpUtil.getInstance().doGet(API.sleep_info, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.body() != null) {
+                    SleepInfoBean bean = new Gson().fromJson(response.body().string(), SleepInfoBean.class);
+                    if (bean.getCode() == 200){
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                userHealthDataBeans.get(0).setProgress(Integer.parseInt(bean.getData().getTodaySleep()));
+                                userHealthDataBeans.get(0).setTextValue(bean.getData().getTodaySleep());
+                                userHealthDataBeans.get(1).setProgress(Integer.parseInt(bean.getData().getWeekSleep()));
+                                userHealthDataBeans.get(1).setTextValue(bean.getData().getWeekSleep());
+                                userHealthDataAdapter.notifyDataSetChanged();
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    }
 
     private void initHeathData() {
         UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);
 
         if (userBean != null) {
+            Log.i("initHeathData", userBean.getOwnerId());
             OkHttpUtil.getInstance().doGet(API.lastPhysicalExamination + userBean.getOwnerId(), new Callback() {
                 @Override
                 public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -175,7 +214,6 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
 
 
                                 viewBinding.bloodOxygenSaturation.setText(lastPhysicalExamination.getData().getHBloodOxygenSaturation());
-
 
                                 viewBinding.bloodSugarValue.setText(lastPhysicalExamination.getData().getHBloodSugarValue());
 
@@ -268,4 +306,31 @@ public class Healthcare extends BaseFragment<FragmentHealthcareBinding> {
         viewBinding.devieList.setAdapter(healthHomeTipAdapter);
 
     }
+
+    //获取健康状态信息
+    private void getHealthInfo() {
+        UserBean userBean = MyApplication.getInstance().db.userDao().getLoginStatusTrue(true);
+        if (userBean != null) {
+            OkHttpUtil.getInstance().doGet(API.health_info + userBean.getOwnerId(), new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    if (response.body() != null) {
+                        HealthInfoBean bean = new Gson().fromJson(response.body().string(), HealthInfoBean.class);
+                        if (bean.getCode() == 200) {
+                            activity.runOnUiThread(() -> {
+                                viewBinding.tvHealthState.setText(bean.getData().getPhysiologicalState());
+                            });
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+
 }

@@ -23,6 +23,8 @@ public class API {
 
     public static final String hostRestaurant = "http://47.116.36.196:9233";
 
+    public static final String hostSleep = "http://47.116.36.196:9203";
+
 
     public static String hardwareHost = hostHealth + "/hardware/hardware/passBoxData";
 
@@ -59,6 +61,11 @@ public class API {
         return hostRestaurant + "/food/queryCanteenShelvingRFood";
     }
 
+    //菜单-新接口
+    public static String newFoodList() {
+        return hostRestaurant + "/book/noPageList?";
+    }
+
     public static String placeOrder = hostRestaurant + "/order/placeOrder";
 
 
@@ -76,6 +83,15 @@ public class API {
 
     //硬件列表
     public static String hardwareList = hostHealth + "/hardware/list";
+
+    //智能硬件
+    public static String ownerHardwareList = ownerHost + "/ownerHardware/listNoPage";
+
+    //操作
+    public static String ownerHardwareDo = ownerHost + "/ownerHardware";
+
+    //设备字典项
+    public static String ownerHardwareDict = ownerHost + "/ownerHardware/dict";
 
     //删除硬件
     public static String hardwareList(int id) {
@@ -213,6 +229,9 @@ public class API {
     public static String orderRefundRefund  = hostRestaurant  +"/order/orderRefundRefund";
 
     public static String canteenList = hostRestaurant+ "/canteen/canteenlist";
+
+    public static String health_info = ownerHost+ "/owner/";
+
     //地址添加
     public static String area = hostShop + "/area";
 
@@ -262,6 +281,10 @@ public class API {
 
     public static String weather = hostSelf + "/self/index/weather";
 
+    public static String weather_new = hostSelf + "/self/index/getWeatherWeb";
+
+    public static String sleep_info = hostSleep + "/report/androidBedReport";
+
     public static String homeBanner = bannerHost + "/chart/list";
 
 
@@ -291,6 +314,14 @@ public class API {
     public static String commentsFirst = hostShop + "/commentsFirst";
 
     public static String commentsFirstList = hostShop + "/commentsFirst/list?isShow=0&";
+
+    public static String UserJiFen = hostShop + "/level/getUser";
+
+    public static String LevelList = hostShop + "/level/listAndroid";
+
+    public static String Specifications = hostShop + "/attributeAssociation/selectByGoodsId/";
+
+    public static String AfterSales = hostShop + "/goods/";
 
     public static String lastPhysicalExamination = hostHealth + "/oxygen/lastPhysicalExamination/";
 

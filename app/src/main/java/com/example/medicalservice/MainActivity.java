@@ -17,8 +17,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.example.medicalservice.activity.ChatView;
@@ -77,7 +80,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private String keep_alive = "1";
     private String ivwNetMode = "1";
 
-
     private final String[] permissions = new String[]{
             Manifest.permission.CAMERA,
             Manifest.permission.RECORD_AUDIO,
@@ -96,7 +98,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=2b11d2f4");
 
         Setting.setLogLevel(Setting.LOG_LEVEL.low);
-
 
         wakeUp();
     }
@@ -294,7 +295,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
 
                     if (loginBean != null && loginBean.getCode() == 200) {
-                        updateToken(loginBean.getData().getAccess_token(), userBean.getNickName(), userBean.getAvatar(), String.valueOf(userBean.getUserId()), userBean.getPhonenumber());
+                        if (loginBean.getData() != null){
+                            updateToken(loginBean.getData().getAccess_token(), userBean.getNickName(), userBean.getAvatar(), String.valueOf(userBean.getUserId()), userBean.getPhonenumber());
+                        }
                     } else {
                         runOnUiThread(() -> showToast("认证刷新失败"));
                     }

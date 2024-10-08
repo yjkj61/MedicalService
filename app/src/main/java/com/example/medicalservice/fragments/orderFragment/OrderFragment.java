@@ -167,8 +167,8 @@ public class OrderFragment extends BaseFragment<FragmentOrderBinding> {
         right_btn = view.findViewById(R.id.no);
         text = view.findViewById(R.id.tip_text);
 
-        left_btn.setText("是，取消预约");
-        left_btn.setText("否，我在想想");
+//        left_btn.setText("是");
+//        right_btn.setText("否");
 
 
         text.setText("是否取消预约");

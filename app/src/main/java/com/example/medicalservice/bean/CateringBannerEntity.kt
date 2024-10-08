@@ -15,7 +15,7 @@ data class CaterRow(
     var id: Int,
     var image: String,
     var imageRemake: Any,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var remark: Any,
     var updateBy: Any,

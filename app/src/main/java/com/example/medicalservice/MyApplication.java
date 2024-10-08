@@ -7,6 +7,7 @@ import androidx.multidex.MultiDex;
 import androidx.room.Room;
 
 import com.clj.fastble.BleManager;
+import com.example.medicalservice.tools.CrashHandler;
 import com.example.medicalservice.tools.MyMigration;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -66,6 +67,8 @@ public class MyApplication extends Application {
         BleManager.getInstance().isBlueEnable();
         BleManager.getInstance().enableBluetooth();
         CrashReport.initCrashReport(this, "48c201e4ed", true, null);
+
+        CrashHandler.getInstance().init(getApplicationContext());
     }
 
     public static MyApplication getInstance() {

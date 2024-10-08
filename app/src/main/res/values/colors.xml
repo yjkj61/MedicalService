@@ -27,5 +27,6 @@
     <color name="color_72CC24">#72CC24</color>
     <color name="color_EFEFEF">#EFEFEF</color>
     <color name="color_FBF4FF">#FBF4FF</color>
+    <color name="view_bg">#E7E7E7</color>
 
 </resources>

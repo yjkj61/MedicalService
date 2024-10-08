@@ -124,7 +124,6 @@
                                     android:id="@+id/wendu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:textColor="#C4A790"
                                     android:textSize="24dp" />
 
@@ -137,7 +136,6 @@
                                     android:id="@+id/weather_info"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:textSize="14sp"
                                     tools:ignore="SmallSp" />
                             </LinearLayout>
@@ -235,10 +233,11 @@
                     android:id="@+id/player"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:numColumns="2"
-                    android:verticalSpacing="4dp" />
+                    android:horizontalSpacing="0dp"
+                    android:verticalSpacing="0dp"
+                    android:numColumns="2" />
 
 
                 <GridView
@@ -258,7 +257,7 @@
                     layout="@layout/voice_weidgt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10" />
+                    android:layout_marginTop="15dp" />
 
 
             </LinearLayout>

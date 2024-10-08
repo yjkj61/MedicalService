@@ -30,6 +30,7 @@ class MsgRemindActivity : BaseActivity<com.example.medicalservice.databinding.Ac
         super.onResume()
         viewBinding.searchEdit.addTextChangedListener(textWatcher)
         requestSearch()
+        viewBinding.igBack.setOnClickListener(View.OnClickListener { finish() })
     }
 
     private val textWatcher = registerTextWatcher{

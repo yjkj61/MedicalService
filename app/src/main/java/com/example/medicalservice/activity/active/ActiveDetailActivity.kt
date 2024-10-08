@@ -1,5 +1,6 @@
 package com.example.medicalservice.activity.active
 
+import android.text.Html
 import com.example.medicalservice.MyApplication
 import com.example.medicalservice.baseFile.BaseActivity
 import com.example.medicalservice.bean.ApplyActiveEntity
@@ -27,7 +28,7 @@ class ActiveDetailActivity : BaseActivity<ActivityActiveDetailBinding>() {
                     activeTitleText.text = title
                     publishTimeText.text = publishTime
                     publishAuthorText.text = articleCreatorName
-                    contentText.text = content
+                    contentText.text = Html.fromHtml(content)
                 }
             }
 

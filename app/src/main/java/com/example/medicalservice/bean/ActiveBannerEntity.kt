@@ -23,7 +23,7 @@ data class ActiveRow(
     var isLimited: String,
     var limitCount: Int,
     var location: String,
-    var markerId: Int,
+    var markerId: Long,
     var markerName: Any,
     var publishTime: String,
     var readCount: Int,
